@@ -1,0 +1,5 @@
+base_config: configs/baseline.yaml
+experiment: baseline_dataeff_100
+data:
+  subset_file: data/splits/train100_seed42.json
+

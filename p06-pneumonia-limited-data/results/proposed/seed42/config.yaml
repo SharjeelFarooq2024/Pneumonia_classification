@@ -1,0 +1,94 @@
+project_name: p06-pneumonia-limited-data
+experiment: proposed
+seed: 42
+data:
+  root: data/raw
+  dataset_id: pneumonia
+  task_name: disease class
+  num_classes: 3
+  class_names:
+  - NORMAL
+  - BACTERIA
+  - VIRUS
+  image_size: 224
+  splits_dir: data/splits
+  subset_file: data/splits/train25_seed42.json
+  num_workers: 0
+  pin_memory: true
+model:
+  name: resnet18
+  pretrained: true
+  input_channels: 3
+  dropout: 0.2
+  imagenet_normalization: true
+training:
+  epochs: 20
+  batch_size: 16
+  batch_size_fallbacks:
+  - 16
+  - 8
+  optimizer: adam
+  lr: 0.001
+  weight_decay: 0.0001
+  loss: weighted_ce
+  focal_gamma: 2.0
+  class_weights_from_subset: true
+  label_smoothing: 0.1
+  augment: true
+  augment_params:
+    rotation_deg: 10
+    translate: 0.05
+    scale_min: 0.95
+    scale_max: 1.05
+    brightness: 0.1
+    contrast: 0.1
+    random_resized_crop: false
+    rrc_scale_min: 0.85
+    rrc_scale_max: 1.0
+    horizontal_flip: false
+  mixup_alpha: 0.0
+  cutmix_alpha: 0.0
+  grad_clip: null
+  amp: auto
+  stages:
+  - name: head
+    epochs: 3
+    lr: 0.001
+    unfreeze:
+    - fc
+    scheduler: cosine
+    weight_decay: 0.0
+  - name: layer4
+    epochs: 4
+    lr: 0.0001
+    unfreeze:
+    - layer4
+    - fc
+    scheduler: cosine
+    weight_decay: 0.0001
+  - name: full
+    epochs: 5
+    lr: 1.0e-05
+    unfreeze: all
+    scheduler: cosine
+    weight_decay: 0.0001
+    layer_lr_mult:
+      conv1: 0.1
+      bn1: 0.1
+      layer1: 0.1
+      layer2: 0.3
+      layer3: 0.5
+      layer4: 0.8
+      fc: 1.0
+eval:
+  batch_size: 16
+  bootstrap_n: 1000
+  bootstrap_seed: 42
+paths:
+  checkpoints: checkpoints
+  results: results
+  figures: results/figures
+  logs: logs
+logging:
+  level: INFO
+  save_predictions: true

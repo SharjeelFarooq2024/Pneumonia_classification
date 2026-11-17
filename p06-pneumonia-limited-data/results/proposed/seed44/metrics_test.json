@@ -1,0 +1,165 @@
+{
+  "n_samples": 624,
+  "class_names": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "accuracy": 0.8525641025641025,
+  "balanced_accuracy": 0.845196436105527,
+  "macro_f1": 0.8426378730208149,
+  "weighted_f1": 0.8551934572656407,
+  "macro_auroc": 0.947458303423268,
+  "per_class": {
+    "NORMAL": {
+      "precision": 0.9898477157360406,
+      "recall": 0.8333333333333334,
+      "f1": 0.9048723897911833,
+      "support": 234,
+      "auroc_ovr": 0.9858207319745781
+    },
+    "BACTERIA": {
+      "precision": 0.8358778625954199,
+      "recall": 0.9049586776859504,
+      "f1": 0.8690476190476191,
+      "support": 242,
+      "auroc_ovr": 0.9444204058673359
+    },
+    "VIRUS": {
+      "precision": 0.7151515151515152,
+      "recall": 0.7972972972972973,
+      "f1": 0.7539936102236422,
+      "support": 148,
+      "auroc_ovr": 0.91213377242789
+    }
+  },
+  "confusion_matrix": [
+    [
+      195,
+      13,
+      26
+    ],
+    [
+      2,
+      219,
+      21
+    ],
+    [
+      0,
+      30,
+      118
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.8333333333333334,
+      0.05555555555555555,
+      0.1111111111111111
+    ],
+    [
+      0.008264462809917356,
+      0.9049586776859504,
+      0.08677685950413223
+    ],
+    [
+      0.0,
+      0.20270270270270271,
+      0.7972972972972973
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "ece": 0.09957084852533461,
+  "reliability_bins": [
+    {
+      "bin_low": 0.3333333333333333,
+      "bin_high": 0.4,
+      "count": 10,
+      "accuracy": 0.7,
+      "confidence": 0.38156938552856445
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.4666666666666667,
+      "count": 22,
+      "accuracy": 0.5909090909090909,
+      "confidence": 0.44007084450938483
+    },
+    {
+      "bin_low": 0.4666666666666667,
+      "bin_high": 0.5333333333333333,
+      "count": 42,
+      "accuracy": 0.47619047619047616,
+      "confidence": 0.5056817155508768
+    },
+    {
+      "bin_low": 0.5333333333333333,
+      "bin_high": 0.6,
+      "count": 39,
+      "accuracy": 0.7948717948717948,
+      "confidence": 0.5657131350957431
+    },
+    {
+      "bin_low": 0.6,
+      "bin_high": 0.6666666666666666,
+      "count": 63,
+      "accuracy": 0.7777777777777778,
+      "confidence": 0.6330904128059508
+    },
+    {
+      "bin_low": 0.6666666666666666,
+      "bin_high": 0.7333333333333333,
+      "count": 83,
+      "accuracy": 0.8554216867469879,
+      "confidence": 0.6997002406292651
+    },
+    {
+      "bin_low": 0.7333333333333333,
+      "bin_high": 0.8,
+      "count": 77,
+      "accuracy": 0.8701298701298701,
+      "confidence": 0.7699218307222638
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.8666666666666667,
+      "count": 93,
+      "accuracy": 0.9247311827956989,
+      "confidence": 0.8335256012537147
+    },
+    {
+      "bin_low": 0.8666666666666667,
+      "bin_high": 0.9333333333333333,
+      "count": 114,
+      "accuracy": 0.9649122807017544,
+      "confidence": 0.9036774959480554
+    },
+    {
+      "bin_low": 0.9333333333333333,
+      "bin_high": 1.0,
+      "count": 81,
+      "accuracy": 0.9629629629629629,
+      "confidence": 0.9600672280346906
+    }
+  ],
+  "macro_f1_bootstrap_ci95": [
+    0.8104602113383869,
+    0.8721707712483783
+  ],
+  "macro_f1_bootstrap_std": 0.015665914794588228,
+  "support_per_class": {
+    "NORMAL": 234,
+    "BACTERIA": 242,
+    "VIRUS": 148
+  },
+  "class_counts": {
+    "NORMAL": 234,
+    "BACTERIA": 242,
+    "VIRUS": 148
+  },
+  "confusion_matrix_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\proposed\\seed44\\confusion_matrix_test.png",
+  "confusion_matrix_normalized_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\proposed\\seed44\\confusion_matrix_test_normalized.png"
+}

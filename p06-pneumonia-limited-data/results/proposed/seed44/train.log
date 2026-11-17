@@ -1,0 +1,35 @@
+2026-11-17 10:41:42 | INFO | Experiment=proposed seed=44 device=cpu
+2026-11-17 10:41:42 | INFO | Versions: {"python": "3.10.11", "torch": "2.13.0", "torchvision": "0.28.0", "numpy": "2.2.6", "pandas": "2.3.3", "scikit-learn": "1.7.2", "matplotlib": "3.10.9", "seaborn": "0.13.0", "PyYAML": "6.0.3", "tqdm": "4.67.1", "medimeta": "0.0.6", "Pillow": "12.3.0"}
+2026-11-17 10:41:42 | INFO | Config: {"data": {"class_names": ["NORMAL", "BACTERIA", "VIRUS"], "dataset_id": "pneumonia", "image_size": 224, "num_classes": 3, "num_workers": 0, "pin_memory": true, "root": "data/raw", "splits_dir": "data/splits", "subset_file": "data/splits/train25_seed42.json", "task_name": "disease class"}, "eval": {"batch_size": 16, "bootstrap_n": 1000, "bootstrap_seed": 42}, "experiment": "proposed", "logging": {"level": "INFO", "save_predictions": true}, "model": {"dropout": 0.2, "imagenet_normalization": true, "input_channels": 3, "name": "resnet18", "pretrained": true}, "paths": {"checkpoints": "checkpoints", "figures": "results/figures", "logs": "logs", "results": "results"}, "project_name": "p06-pneumonia-limited-data", "seed": 44, "training": {"amp": "auto", "augment": true, "augment_params": {"brightness": 0.1, "contrast": 0.1, "horizontal_flip": false, "random_resized_crop": false, "rotation_deg": 10, "rrc_scale_max": 1.0, "rrc_scale_min": 0.85, "scale_max": 1.05, "scale_min": 0.95, "translate": 0.05}, "batch_size": 16, "batch_size_fallbacks": [16, 8], "class_weights_from_subset": true, "cutmix_alpha": 0.0, "epochs": 20, "focal_gamma": 2.0, "grad_clip": null, "label_smoothing": 0.1, "loss": "weighted_ce", "lr": 0.001, "mixup_alpha": 0.0, "optimizer": "adam", "stages": [{"epochs": 3, "lr": 0.001, "name": "head", "scheduler": "cosine", "unfreeze": ["fc"], "weight_decay": 0.0}, {"epochs": 4, "lr": 0.0001, "name": "layer4", "scheduler": "cosine", "unfreeze": ["layer4", "fc"], "weight_decay": 0.0001}, {"epochs": 5, "layer_lr_mult": {"bn1": 0.1, "conv1": 0.1, "fc": 1.0, "layer1": 0.1, "layer2": 0.3, "layer3": 0.5, "layer4": 0.8}, "lr": 1e-05, "name": "full", "scheduler": "cosine", "unfreeze": "all", "weight_decay": 0.0001}], "weight_decay": 0.0001}}
+2026-11-17 10:41:42 | INFO | Training subset: data/splits/train25_seed42.json (1103 samples, fraction 0.25, seed 42)
+2026-11-17 10:41:44 | INFO | Dataset sizes: train=1103 val=817 (test is not loaded in train.py)
+2026-11-17 10:41:44 | INFO | Train class counts: [290, 526, 287]
+2026-11-17 10:41:44 | INFO | Val class counts: [188, 431, 198]
+2026-11-17 10:41:44 | INFO | Device is CPU: using batch size 16 (no VRAM-based fallback needed).
+2026-11-17 10:41:45 | INFO | Class weights from train subset: [1.2678160667419434, 0.6989860534667969, 1.2810685634613037]
+2026-11-17 10:41:45 | INFO | Mixed precision: False
+2026-11-17 10:41:45 | INFO | Model parameters: {'total_parameters': 11178051, 'trainable_parameters': 11178051}
+2026-11-17 10:41:45 | INFO | Training schedule: [{"name": "head", "epochs": 3, "lr": 0.001, "unfreeze": ["fc"], "scheduler": "cosine", "weight_decay": 0.0}, {"name": "layer4", "epochs": 4, "lr": 0.0001, "unfreeze": ["layer4", "fc"], "scheduler": "cosine", "weight_decay": 0.0001}, {"name": "full", "epochs": 5, "lr": 1e-05, "unfreeze": "all", "scheduler": "cosine", "weight_decay": 0.0001}]
+2026-11-17 10:41:45 | INFO | Stage 1/3 'head': epochs=3 lr=0.001 wd=0 trainable=1539
+2026-11-17 10:44:11 | INFO | epoch 1 | head | train_loss 0.9872 acc 0.5331 | val_loss 0.8349 acc 0.6842 bal_acc 0.7196 macro_f1 0.6852 auroc 0.8556 | 146.0s
+2026-11-17 10:44:11 | INFO | New best val macro-F1 0.6852 at epoch 1; checkpoint state updated.
+2026-11-17 10:45:57 | INFO | epoch 2 | head | train_loss 0.8462 acc 0.6546 | val_loss 0.8105 acc 0.6561 bal_acc 0.7236 macro_f1 0.6762 auroc 0.8690 | 105.6s
+2026-11-17 10:47:33 | INFO | epoch 3 | head | train_loss 0.8109 acc 0.6636 | val_loss 0.7730 acc 0.7528 bal_acc 0.7621 macro_f1 0.7424 auroc 0.8760 | 96.8s
+2026-11-17 10:47:33 | INFO | New best val macro-F1 0.7424 at epoch 3; checkpoint state updated.
+2026-11-17 10:47:34 | INFO | Stage 2/3 'layer4': epochs=4 lr=0.0001 wd=0.0001 trainable=8395267
+2026-11-17 10:49:07 | INFO | epoch 4 | layer4 | train_loss 0.7837 acc 0.6854 | val_loss 0.7222 acc 0.7821 bal_acc 0.7874 macro_f1 0.7725 auroc 0.8945 | 93.3s
+2026-11-17 10:49:07 | INFO | New best val macro-F1 0.7725 at epoch 4; checkpoint state updated.
+2026-11-17 10:50:37 | INFO | epoch 5 | layer4 | train_loss 0.6563 acc 0.7779 | val_loss 0.7031 acc 0.7821 bal_acc 0.7817 macro_f1 0.7705 auroc 0.9067 | 89.3s
+2026-11-17 10:52:14 | INFO | epoch 6 | layer4 | train_loss 0.6286 acc 0.8069 | val_loss 0.7117 acc 0.7528 bal_acc 0.7962 macro_f1 0.7630 auroc 0.9116 | 96.9s
+2026-11-17 10:54:08 | INFO | epoch 7 | layer4 | train_loss 0.5857 acc 0.8232 | val_loss 0.6905 acc 0.7809 bal_acc 0.8040 macro_f1 0.7824 auroc 0.9149 | 114.0s
+2026-11-17 10:54:08 | INFO | New best val macro-F1 0.7824 at epoch 7; checkpoint state updated.
+2026-11-17 10:54:09 | INFO | Stage 3/3 'full': epochs=5 lr=1e-05 wd=0.0001 trainable=11178051
+2026-11-17 10:57:45 | INFO | epoch 8 | full | train_loss 0.5771 acc 0.8477 | val_loss 0.6847 acc 0.7993 bal_acc 0.8035 macro_f1 0.7934 auroc 0.9179 | 216.5s
+2026-11-17 10:57:45 | INFO | New best val macro-F1 0.7934 at epoch 8; checkpoint state updated.
+2026-11-17 11:01:32 | INFO | epoch 9 | full | train_loss 0.5776 acc 0.8341 | val_loss 0.6879 acc 0.7968 bal_acc 0.8076 macro_f1 0.7930 auroc 0.9163 | 227.0s
+2026-11-17 11:04:55 | INFO | epoch 10 | full | train_loss 0.5674 acc 0.8577 | val_loss 0.6879 acc 0.7882 bal_acc 0.8050 macro_f1 0.7868 auroc 0.9151 | 203.0s
+2026-11-17 11:07:54 | INFO | epoch 11 | full | train_loss 0.5483 acc 0.8667 | val_loss 0.6869 acc 0.8017 bal_acc 0.8071 macro_f1 0.7951 auroc 0.9162 | 178.6s
+2026-11-17 11:07:54 | INFO | New best val macro-F1 0.7951 at epoch 11; checkpoint state updated.
+2026-11-17 11:11:01 | INFO | epoch 12 | full | train_loss 0.5537 acc 0.8694 | val_loss 0.6864 acc 0.7993 bal_acc 0.8055 macro_f1 0.7924 auroc 0.9170 | 187.0s
+2026-11-17 11:11:02 | INFO | Saved best checkpoint to C:\Users\Sharj\Downloads\5th\Projects\DL Project\Pneumonia_classification\Pneumonia_classification\p06-pneumonia-limited-data\checkpoints\proposed_seed44.pt (best val macro-F1 0.7951)
+2026-11-17 11:11:39 | INFO | Run complete in 1757.0 s (29.3 min).

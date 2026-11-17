@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-11-17T10:41:42",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "Intel64 Family 6 Model 140 Stepping 2, GenuineIntel",
+  "cpu_count": 8,
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Program Files\\Python310\\python.exe",
+  "device": "cpu",
+  "cuda_available": false,
+  "versions": {
+    "python": "3.10.11",
+    "torch": "2.13.0",
+    "torchvision": "0.28.0",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.0",
+    "PyYAML": "6.0.3",
+    "tqdm": "4.67.1",
+    "medimeta": "0.0.6",
+    "Pillow": "12.3.0"
+  },
+  "git_commit": "b4b1078"
+}

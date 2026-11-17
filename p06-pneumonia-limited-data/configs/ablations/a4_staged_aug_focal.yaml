@@ -1,0 +1,7 @@
+base_config: configs/ablations/a2_staged_aug.yaml
+experiment: ablation_a4_staged_aug_focal
+training:
+  loss: focal
+  focal_gamma: 2.0
+  class_weights_from_subset: false
+

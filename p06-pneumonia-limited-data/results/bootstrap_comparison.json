@@ -1,0 +1,63 @@
+{
+  "per_seed": {
+    "42": {
+      "n_boot": 2000,
+      "baseline_macro_f1_ci95": [
+        0.49005343226625625,
+        0.5693356555466821
+      ],
+      "proposed_macro_f1_ci95": [
+        0.7961449736280393,
+        0.8581952368661439
+      ],
+      "difference_mean": 0.29740235577460783,
+      "difference_ci95": [
+        0.2542934264866456,
+        0.34143067945395833
+      ],
+      "probability_proposed_better": 1.0,
+      "observed_baseline_macro_f1": 0.5296469986241208,
+      "observed_proposed_macro_f1": 0.8273167182387425
+    },
+    "43": {
+      "n_boot": 2000,
+      "baseline_macro_f1_ci95": [
+        0.49381729791564827,
+        0.5669368883551004
+      ],
+      "proposed_macro_f1_ci95": [
+        0.8025096625780987,
+        0.8626849568448305
+      ],
+      "difference_mean": 0.3043618550598308,
+      "difference_ci95": [
+        0.2600010900681128,
+        0.3468321004483832
+      ],
+      "probability_proposed_better": 1.0,
+      "observed_baseline_macro_f1": 0.5299311023303528,
+      "observed_proposed_macro_f1": 0.8342946099200081
+    },
+    "44": {
+      "n_boot": 2000,
+      "baseline_macro_f1_ci95": [
+        0.6584941319083982,
+        0.7355007750682853
+      ],
+      "proposed_macro_f1_ci95": [
+        0.8133896119267551,
+        0.8706004652305465
+      ],
+      "difference_mean": 0.1457712115694377,
+      "difference_ci95": [
+        0.10581298009883071,
+        0.18595144248281217
+      ],
+      "probability_proposed_better": 1.0,
+      "observed_baseline_macro_f1": 0.6967855221963305,
+      "observed_proposed_macro_f1": 0.8426378730208149
+    }
+  },
+  "mean_difference_across_seeds": 0.24917847413462546,
+  "note": "Paired bootstrap over test images; positive difference favours the proposed model."
+}

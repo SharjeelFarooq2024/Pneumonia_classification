@@ -1,0 +1,103 @@
+{
+  "n_samples": 817,
+  "class_names": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "accuracy": 0.5275397796817626,
+  "balanced_accuracy": 0.3333333333333333,
+  "macro_f1": 0.23023504273504272,
+  "weighted_f1": 0.3643744311583969,
+  "macro_auroc": 0.5874773452038083,
+  "per_class": {
+    "NORMAL": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 188,
+      "auroc_ovr": 0.7934495822480804
+    },
+    "BACTERIA": {
+      "precision": 0.5275397796817626,
+      "recall": 1.0,
+      "f1": 0.6907051282051282,
+      "support": 431,
+      "auroc_ovr": 0.6039875936188885
+    },
+    "VIRUS": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 198,
+      "auroc_ovr": 0.3649948597444559
+    }
+  },
+  "confusion_matrix": [
+    [
+      0,
+      188,
+      0
+    ],
+    [
+      0,
+      431,
+      0
+    ],
+    [
+      0,
+      198,
+      0
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "ece": 0.14761701937550573,
+  "reliability_bins": [
+    {
+      "bin_low": 0.3333333333333333,
+      "bin_high": 0.4,
+      "count": 814,
+      "accuracy": 0.5282555282555282,
+      "confidence": 0.3803421310915701
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.4666666666666667,
+      "count": 3,
+      "accuracy": 0.3333333333333333,
+      "confidence": 0.4005331794420878
+    }
+  ],
+  "macro_f1_bootstrap_ci95": [
+    0.21985233798195244,
+    0.2398202688183921
+  ],
+  "macro_f1_bootstrap_std": 0.0051051000802010945,
+  "support_per_class": {
+    "NORMAL": 188,
+    "BACTERIA": 431,
+    "VIRUS": 198
+  },
+  "loss": 1.061458476900033
+}

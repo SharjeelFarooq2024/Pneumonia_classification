@@ -1,0 +1,165 @@
+{
+  "n_samples": 817,
+  "class_names": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "accuracy": 0.7013463892288861,
+  "balanced_accuracy": 0.6253904582013384,
+  "macro_f1": 0.5811759167677281,
+  "weighted_f1": 0.637226376782339,
+  "macro_auroc": 0.8284739692500854,
+  "per_class": {
+    "NORMAL": {
+      "precision": 0.717391304347826,
+      "recall": 0.8776595744680851,
+      "f1": 0.7894736842105263,
+      "support": 188,
+      "auroc_ovr": 0.9576074823258803
+    },
+    "BACTERIA": {
+      "precision": 0.6971326164874552,
+      "recall": 0.9025522041763341,
+      "f1": 0.7866531850353893,
+      "support": 431,
+      "auroc_ovr": 0.8165009677458134
+    },
+    "VIRUS": {
+      "precision": 0.6551724137931034,
+      "recall": 0.09595959595959595,
+      "f1": 0.16740088105726872,
+      "support": 198,
+      "auroc_ovr": 0.7113134576785628
+    }
+  },
+  "confusion_matrix": [
+    [
+      165,
+      23,
+      0
+    ],
+    [
+      32,
+      389,
+      10
+    ],
+    [
+      33,
+      146,
+      19
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.8776595744680851,
+      0.12234042553191489,
+      0.0
+    ],
+    [
+      0.07424593967517401,
+      0.9025522041763341,
+      0.02320185614849188
+    ],
+    [
+      0.16666666666666666,
+      0.7373737373737373,
+      0.09595959595959595
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "ece": 0.05480205742790475,
+  "reliability_bins": [
+    {
+      "bin_low": 0.3333333333333333,
+      "bin_high": 0.4,
+      "count": 17,
+      "accuracy": 0.29411764705882354,
+      "confidence": 0.3752983650740455
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.4666666666666667,
+      "count": 51,
+      "accuracy": 0.49019607843137253,
+      "confidence": 0.4346596616155961
+    },
+    {
+      "bin_low": 0.4666666666666667,
+      "bin_high": 0.5333333333333333,
+      "count": 100,
+      "accuracy": 0.46,
+      "confidence": 0.5015560978651047
+    },
+    {
+      "bin_low": 0.5333333333333333,
+      "bin_high": 0.6,
+      "count": 104,
+      "accuracy": 0.5673076923076923,
+      "confidence": 0.5690402898650903
+    },
+    {
+      "bin_low": 0.6,
+      "bin_high": 0.6666666666666666,
+      "count": 124,
+      "accuracy": 0.7338709677419355,
+      "confidence": 0.6340464786175759
+    },
+    {
+      "bin_low": 0.6666666666666666,
+      "bin_high": 0.7333333333333333,
+      "count": 125,
+      "accuracy": 0.84,
+      "confidence": 0.7014401578903198
+    },
+    {
+      "bin_low": 0.7333333333333333,
+      "bin_high": 0.8,
+      "count": 143,
+      "accuracy": 0.7552447552447552,
+      "confidence": 0.7624544197029167
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.8666666666666667,
+      "count": 63,
+      "accuracy": 0.8571428571428571,
+      "confidence": 0.8277147364994836
+    },
+    {
+      "bin_low": 0.8666666666666667,
+      "bin_high": 0.9333333333333333,
+      "count": 45,
+      "accuracy": 0.8222222222222222,
+      "confidence": 0.9014312492476569
+    },
+    {
+      "bin_low": 0.9333333333333333,
+      "bin_high": 1.0,
+      "count": 45,
+      "accuracy": 0.9555555555555556,
+      "confidence": 0.9572772171762255
+    }
+  ],
+  "macro_f1_bootstrap_ci95": [
+    0.551433823389622,
+    0.6134908540352528
+  ],
+  "macro_f1_bootstrap_std": 0.015627662353012148,
+  "support_per_class": {
+    "NORMAL": 188,
+    "BACTERIA": 431,
+    "VIRUS": 198
+  },
+  "class_counts": {
+    "NORMAL": 188,
+    "BACTERIA": 431,
+    "VIRUS": 198
+  },
+  "confusion_matrix_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed43\\confusion_matrix_val.png",
+  "confusion_matrix_normalized_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed43\\confusion_matrix_val_normalized.png"
+}

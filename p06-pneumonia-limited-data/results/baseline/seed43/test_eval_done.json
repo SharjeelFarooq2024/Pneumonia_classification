@@ -1,0 +1,8 @@
+{
+  "test_evaluated": true,
+  "timestamp": "2026-11-16T20:11:17",
+  "checkpoint": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\checkpoints\\baseline_seed43.pt",
+  "split": "test",
+  "note": "Test evaluated once after all training/selection decisions were frozen.",
+  "metrics_file": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed43\\metrics.json"
+}

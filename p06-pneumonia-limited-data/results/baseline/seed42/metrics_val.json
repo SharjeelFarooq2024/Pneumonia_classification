@@ -1,0 +1,165 @@
+{
+  "n_samples": 817,
+  "class_names": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "accuracy": 0.7001223990208079,
+  "balanced_accuracy": 0.6138145869349897,
+  "macro_f1": 0.599430703494391,
+  "weighted_f1": 0.6483069229988325,
+  "macro_auroc": 0.8259543582602901,
+  "per_class": {
+    "NORMAL": {
+      "precision": 0.7978142076502732,
+      "recall": 0.776595744680851,
+      "f1": 0.7870619946091644,
+      "support": 188,
+      "auroc_ovr": 0.956195244055069
+    },
+    "BACTERIA": {
+      "precision": 0.6734348561759729,
+      "recall": 0.9234338747099768,
+      "f1": 0.7788649706457925,
+      "support": 431,
+      "auroc_ovr": 0.8085185674957625
+    },
+    "VIRUS": {
+      "precision": 0.6511627906976745,
+      "recall": 0.1414141414141414,
+      "f1": 0.23236514522821577,
+      "support": 198,
+      "auroc_ovr": 0.7131492632300386
+    }
+  },
+  "confusion_matrix": [
+    [
+      146,
+      40,
+      2
+    ],
+    [
+      20,
+      398,
+      13
+    ],
+    [
+      17,
+      153,
+      28
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.776595744680851,
+      0.2127659574468085,
+      0.010638297872340425
+    ],
+    [
+      0.04640371229698376,
+      0.9234338747099768,
+      0.030162412993039442
+    ],
+    [
+      0.08585858585858586,
+      0.7727272727272727,
+      0.1414141414141414
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "ece": 0.08286823166335955,
+  "reliability_bins": [
+    {
+      "bin_low": 0.3333333333333333,
+      "bin_high": 0.4,
+      "count": 17,
+      "accuracy": 0.29411764705882354,
+      "confidence": 0.3744560427525464
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.4666666666666667,
+      "count": 72,
+      "accuracy": 0.3888888888888889,
+      "confidence": 0.43893224456244045
+    },
+    {
+      "bin_low": 0.4666666666666667,
+      "bin_high": 0.5333333333333333,
+      "count": 112,
+      "accuracy": 0.5892857142857143,
+      "confidence": 0.5030764030026538
+    },
+    {
+      "bin_low": 0.5333333333333333,
+      "bin_high": 0.6,
+      "count": 117,
+      "accuracy": 0.6239316239316239,
+      "confidence": 0.5669579516109239
+    },
+    {
+      "bin_low": 0.6,
+      "bin_high": 0.6666666666666666,
+      "count": 164,
+      "accuracy": 0.7560975609756098,
+      "confidence": 0.6328373929349388
+    },
+    {
+      "bin_low": 0.6666666666666666,
+      "bin_high": 0.7333333333333333,
+      "count": 175,
+      "accuracy": 0.8114285714285714,
+      "confidence": 0.7015915550504412
+    },
+    {
+      "bin_low": 0.7333333333333333,
+      "bin_high": 0.8,
+      "count": 98,
+      "accuracy": 0.7755102040816326,
+      "confidence": 0.7592461030093991
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.8666666666666667,
+      "count": 15,
+      "accuracy": 0.9333333333333333,
+      "confidence": 0.8298412164052328
+    },
+    {
+      "bin_low": 0.8666666666666667,
+      "bin_high": 0.9333333333333333,
+      "count": 34,
+      "accuracy": 0.9705882352941176,
+      "confidence": 0.9017392204088324
+    },
+    {
+      "bin_low": 0.9333333333333333,
+      "bin_high": 1.0,
+      "count": 13,
+      "accuracy": 0.8461538461538461,
+      "confidence": 0.960756370654473
+    }
+  ],
+  "macro_f1_bootstrap_ci95": [
+    0.5681323658213924,
+    0.6324439145295312
+  ],
+  "macro_f1_bootstrap_std": 0.016738878296635732,
+  "support_per_class": {
+    "NORMAL": 188,
+    "BACTERIA": 431,
+    "VIRUS": 198
+  },
+  "class_counts": {
+    "NORMAL": 188,
+    "BACTERIA": 431,
+    "VIRUS": 198
+  },
+  "confusion_matrix_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed42\\confusion_matrix_val.png",
+  "confusion_matrix_normalized_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed42\\confusion_matrix_val_normalized.png"
+}

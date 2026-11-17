@@ -1,0 +1,364 @@
+{
+  "experiment": "proposed",
+  "seed": 42,
+  "checkpoint": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\checkpoints\\proposed_seed42.pt",
+  "best_validation_checkpoint_epoch": 10,
+  "subset_file": "data/splits/train25_seed42.json",
+  "model_name": "resnet18",
+  "pretrained": true,
+  "device": "cpu",
+  "amp": false,
+  "class_names": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "splits": {
+    "val": {
+      "n_samples": 817,
+      "class_names": [
+        "NORMAL",
+        "BACTERIA",
+        "VIRUS"
+      ],
+      "accuracy": 0.8090575275397797,
+      "balanced_accuracy": 0.8141955002793232,
+      "macro_f1": 0.8050844898910038,
+      "weighted_f1": 0.8104267715447349,
+      "macro_auroc": 0.9154089444650232,
+      "per_class": {
+        "NORMAL": {
+          "precision": 0.9191919191919192,
+          "recall": 0.9680851063829787,
+          "f1": 0.9430051813471503,
+          "support": 188,
+          "auroc_ovr": 0.9967865236951594
+        },
+        "BACTERIA": {
+          "precision": 0.858560794044665,
+          "recall": 0.802784222737819,
+          "f1": 0.829736211031175,
+          "support": 431,
+          "auroc_ovr": 0.9054674633038001
+        },
+        "VIRUS": {
+          "precision": 0.6157407407407407,
+          "recall": 0.6717171717171717,
+          "f1": 0.642512077294686,
+          "support": 198,
+          "auroc_ovr": 0.8439728463961098
+        }
+      },
+      "confusion_matrix": [
+        [
+          182,
+          3,
+          3
+        ],
+        [
+          5,
+          346,
+          80
+        ],
+        [
+          11,
+          54,
+          133
+        ]
+      ],
+      "confusion_matrix_normalized": [
+        [
+          0.9680851063829787,
+          0.015957446808510637,
+          0.015957446808510637
+        ],
+        [
+          0.01160092807424594,
+          0.802784222737819,
+          0.18561484918793503
+        ],
+        [
+          0.05555555555555555,
+          0.2727272727272727,
+          0.6717171717171717
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "NORMAL",
+        "BACTERIA",
+        "VIRUS"
+      ],
+      "ece": 0.051478739686520024,
+      "reliability_bins": [
+        {
+          "bin_low": 0.3333333333333333,
+          "bin_high": 0.4,
+          "count": 2,
+          "accuracy": 0.0,
+          "confidence": 0.37375739216804504
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.4666666666666667,
+          "count": 22,
+          "accuracy": 0.6363636363636364,
+          "confidence": 0.44491771811788733
+        },
+        {
+          "bin_low": 0.4666666666666667,
+          "bin_high": 0.5333333333333333,
+          "count": 51,
+          "accuracy": 0.45098039215686275,
+          "confidence": 0.5061675374414406
+        },
+        {
+          "bin_low": 0.5333333333333333,
+          "bin_high": 0.6,
+          "count": 76,
+          "accuracy": 0.7105263157894737,
+          "confidence": 0.5716038895280737
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.6666666666666666,
+          "count": 73,
+          "accuracy": 0.6712328767123288,
+          "confidence": 0.634798822337634
+        },
+        {
+          "bin_low": 0.6666666666666666,
+          "bin_high": 0.7333333333333333,
+          "count": 91,
+          "accuracy": 0.7472527472527473,
+          "confidence": 0.7009608044729128
+        },
+        {
+          "bin_low": 0.7333333333333333,
+          "bin_high": 0.8,
+          "count": 118,
+          "accuracy": 0.847457627118644,
+          "confidence": 0.7676348044710645
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.8666666666666667,
+          "count": 112,
+          "accuracy": 0.8571428571428571,
+          "confidence": 0.8362729953868049
+        },
+        {
+          "bin_low": 0.8666666666666667,
+          "bin_high": 0.9333333333333333,
+          "count": 131,
+          "accuracy": 0.9312977099236641,
+          "confidence": 0.8988984063381457
+        },
+        {
+          "bin_low": 0.9333333333333333,
+          "bin_high": 1.0,
+          "count": 141,
+          "accuracy": 0.9574468085106383,
+          "confidence": 0.963497002919515
+        }
+      ],
+      "macro_f1_bootstrap_ci95": [
+        0.7792750765509103,
+        0.8312887479089079
+      ],
+      "macro_f1_bootstrap_std": 0.013146879992419229,
+      "support_per_class": {
+        "NORMAL": 188,
+        "BACTERIA": 431,
+        "VIRUS": 198
+      },
+      "class_counts": {
+        "NORMAL": 188,
+        "BACTERIA": 431,
+        "VIRUS": 198
+      },
+      "confusion_matrix_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\proposed\\seed42\\confusion_matrix_val.png",
+      "confusion_matrix_normalized_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\proposed\\seed42\\confusion_matrix_val_normalized.png"
+    },
+    "test": {
+      "n_samples": 624,
+      "class_names": [
+        "NORMAL",
+        "BACTERIA",
+        "VIRUS"
+      ],
+      "accuracy": 0.8365384615384616,
+      "balanced_accuracy": 0.8317320817320817,
+      "macro_f1": 0.8273167182387425,
+      "weighted_f1": 0.838988537544699,
+      "macro_auroc": 0.9559898772575185,
+      "per_class": {
+        "NORMAL": {
+          "precision": 0.9838709677419355,
+          "recall": 0.782051282051282,
+          "f1": 0.8714285714285714,
+          "support": 234,
+          "auroc_ovr": 0.9828731097961867
+        },
+        "BACTERIA": {
+          "precision": 0.8239700374531835,
+          "recall": 0.9090909090909091,
+          "f1": 0.8644400785854617,
+          "support": 242,
+          "auroc_ovr": 0.9601163947903595
+        },
+        "VIRUS": {
+          "precision": 0.695906432748538,
+          "recall": 0.8040540540540541,
+          "f1": 0.7460815047021944,
+          "support": 148,
+          "auroc_ovr": 0.9249801271860095
+        }
+      },
+      "confusion_matrix": [
+        [
+          183,
+          19,
+          32
+        ],
+        [
+          2,
+          220,
+          20
+        ],
+        [
+          1,
+          28,
+          119
+        ]
+      ],
+      "confusion_matrix_normalized": [
+        [
+          0.782051282051282,
+          0.0811965811965812,
+          0.13675213675213677
+        ],
+        [
+          0.008264462809917356,
+          0.9090909090909091,
+          0.08264462809917356
+        ],
+        [
+          0.006756756756756757,
+          0.1891891891891892,
+          0.8040540540540541
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "NORMAL",
+        "BACTERIA",
+        "VIRUS"
+      ],
+      "ece": 0.10204588569318637,
+      "reliability_bins": [
+        {
+          "bin_low": 0.3333333333333333,
+          "bin_high": 0.4,
+          "count": 8,
+          "accuracy": 0.125,
+          "confidence": 0.37671613693237305
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.4666666666666667,
+          "count": 22,
+          "accuracy": 0.22727272727272727,
+          "confidence": 0.43282710015773773
+        },
+        {
+          "bin_low": 0.4666666666666667,
+          "bin_high": 0.5333333333333333,
+          "count": 41,
+          "accuracy": 0.5609756097560976,
+          "confidence": 0.5045079167296247
+        },
+        {
+          "bin_low": 0.5333333333333333,
+          "bin_high": 0.6,
+          "count": 49,
+          "accuracy": 0.6530612244897959,
+          "confidence": 0.5682044126549546
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.6666666666666666,
+          "count": 55,
+          "accuracy": 0.6909090909090909,
+          "confidence": 0.6310453447428617
+        },
+        {
+          "bin_low": 0.6666666666666666,
+          "bin_high": 0.7333333333333333,
+          "count": 80,
+          "accuracy": 0.8625,
+          "confidence": 0.7013768576085567
+        },
+        {
+          "bin_low": 0.7333333333333333,
+          "bin_high": 0.8,
+          "count": 84,
+          "accuracy": 0.8928571428571429,
+          "confidence": 0.7652991187004816
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.8666666666666667,
+          "count": 96,
+          "accuracy": 0.96875,
+          "confidence": 0.8329435450335344
+        },
+        {
+          "bin_low": 0.8666666666666667,
+          "bin_high": 0.9333333333333333,
+          "count": 107,
+          "accuracy": 0.9906542056074766,
+          "confidence": 0.9026421949128124
+        },
+        {
+          "bin_low": 0.9333333333333333,
+          "bin_high": 1.0,
+          "count": 82,
+          "accuracy": 0.975609756097561,
+          "confidence": 0.9595657085500112
+        }
+      ],
+      "macro_f1_bootstrap_ci95": [
+        0.795985005450086,
+        0.8568804954840162
+      ],
+      "macro_f1_bootstrap_std": 0.015670482740729824,
+      "support_per_class": {
+        "NORMAL": 234,
+        "BACTERIA": 242,
+        "VIRUS": 148
+      },
+      "class_counts": {
+        "NORMAL": 234,
+        "BACTERIA": 242,
+        "VIRUS": 148
+      },
+      "confusion_matrix_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\proposed\\seed42\\confusion_matrix_test.png",
+      "confusion_matrix_normalized_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\proposed\\seed42\\confusion_matrix_test_normalized.png"
+    }
+  },
+  "wall_clock_seconds": 44.69039845466614,
+  "versions": {
+    "python": "3.10.11",
+    "torch": "2.13.0",
+    "torchvision": "0.28.0",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.0",
+    "PyYAML": "6.0.3",
+    "tqdm": "4.67.1",
+    "medimeta": "0.0.6",
+    "Pillow": "12.3.0"
+  },
+  "git_commit": "b4b1078"
+}

@@ -1,0 +1,63 @@
+base_config: configs/base.yaml
+experiment: proposed
+
+model:
+  name: resnet18
+  pretrained: true
+  input_channels: 3
+  dropout: 0.2
+  imagenet_normalization: true
+
+training:
+  batch_size: 16
+  optimizer: adam
+  weight_decay: 0.0001
+  # Primary contribution A: staged fine-tuning of an ImageNet-pretrained ResNet-18.
+  # Stage 1 trains the new head, stage 2 unfreezes the last residual stage, stage 3
+  # unfreezes everything with a lower, layer-wise (discriminative) learning rate.
+  stages:
+    - name: head
+      epochs: 3
+      lr: 0.001
+      unfreeze: ["fc"]
+      scheduler: cosine
+      weight_decay: 0.0
+    - name: layer4
+      epochs: 4
+      lr: 0.0001
+      unfreeze: ["layer4", "fc"]
+      scheduler: cosine
+      weight_decay: 0.0001
+    - name: full
+      epochs: 5
+      lr: 0.00001
+      unfreeze: "all"
+      scheduler: cosine
+      weight_decay: 0.0001
+      layer_lr_mult:
+        conv1: 0.1
+        bn1: 0.1
+        layer1: 0.1
+        layer2: 0.3
+        layer3: 0.5
+        layer4: 0.8
+        fc: 1.0
+  # Supporting components B1 (X-ray-safe augmentation), B2 (label smoothing),
+  # and C (class-weighted CE). Each is independently switchable via config.
+  augment: true
+  augment_params:
+    rotation_deg: 10
+    translate: 0.05
+    scale_min: 0.95
+    scale_max: 1.05
+    brightness: 0.10
+    contrast: 0.10
+    random_resized_crop: false
+    rrc_scale_min: 0.85
+    rrc_scale_max: 1.0
+    horizontal_flip: false
+  loss: weighted_ce
+  class_weights_from_subset: true
+  label_smoothing: 0.1
+  mixup_alpha: 0.0
+  cutmix_alpha: 0.0

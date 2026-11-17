@@ -1,0 +1,42 @@
+base_config: configs/base.yaml
+experiment: ablation_a1_resnet18_staged
+model:
+  name: resnet18
+  pretrained: true
+  dropout: 0.0
+  imagenet_normalization: true
+training:
+  batch_size: 16
+  weight_decay: 0.0001
+  loss: ce
+  class_weights_from_subset: false
+  label_smoothing: 0.0
+  augment: false
+  stages:
+    - name: head
+      epochs: 3
+      lr: 0.001
+      unfreeze: ["fc"]
+      scheduler: cosine
+      weight_decay: 0.0
+    - name: layer4
+      epochs: 4
+      lr: 0.0001
+      unfreeze: ["layer4", "fc"]
+      scheduler: cosine
+      weight_decay: 0.0001
+    - name: full
+      epochs: 5
+      lr: 0.00001
+      unfreeze: "all"
+      scheduler: cosine
+      weight_decay: 0.0001
+      layer_lr_mult:
+        conv1: 0.1
+        bn1: 0.1
+        layer1: 0.1
+        layer2: 0.3
+        layer3: 0.5
+        layer4: 0.8
+        fc: 1.0
+

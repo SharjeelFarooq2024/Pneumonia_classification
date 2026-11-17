@@ -1,0 +1,2 @@
+epoch,stage,epoch_in_stage,lr_head,lr_min,train_loss,train_accuracy,val_loss,val_accuracy,val_balanced_accuracy,val_macro_f1,val_weighted_f1,val_macro_auroc,epoch_seconds
+1,single,1,0.001,0.001,1.0737844109535217,0.5,1.0970212817192078,0.0,0.0,0.0,0.0,,7.225683927536011

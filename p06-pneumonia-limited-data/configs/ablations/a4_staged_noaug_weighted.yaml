@@ -1,0 +1,6 @@
+base_config: configs/ablations/a1_resnet18_staged.yaml
+experiment: ablation_a4_staged_noaug_weighted
+training:
+  loss: weighted_ce
+  class_weights_from_subset: true
+

@@ -1,0 +1,5 @@
+base_config: configs/ablations/a1_resnet18_staged.yaml
+experiment: ablation_a2_staged_aug
+training:
+  augment: true
+

@@ -1,0 +1,5 @@
+base_config: configs/ablations/a3_staged_aug_ls.yaml
+experiment: ablation_a3_staged_aug_ls_mixup
+training:
+  mixup_alpha: 0.2
+

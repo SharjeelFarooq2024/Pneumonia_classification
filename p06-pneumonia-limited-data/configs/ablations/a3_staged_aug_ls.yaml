@@ -1,0 +1,5 @@
+base_config: configs/ablations/a2_staged_aug.yaml
+experiment: ablation_a3_staged_aug_ls
+training:
+  label_smoothing: 0.1
+

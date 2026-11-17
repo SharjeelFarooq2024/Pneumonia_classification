@@ -1,0 +1,23 @@
+base_config: configs/base.yaml
+experiment: baseline
+
+model:
+  name: baseline_cnn
+  pretrained: false
+  input_channels: 3
+  imagenet_normalization: false
+
+training:
+  epochs: 20
+  batch_size: 16
+  optimizer: adam
+  lr: 0.001
+  weight_decay: 0.0
+  loss: ce
+  class_weights_from_subset: false
+  label_smoothing: 0.0
+  augment: false
+  mixup_alpha: 0.0
+  stages: null
+
+# Per-seed checkpoints are saved as checkpoints/baseline_seed{S}.pt.

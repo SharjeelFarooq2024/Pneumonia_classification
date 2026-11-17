@@ -1,0 +1,165 @@
+{
+  "n_samples": 624,
+  "class_names": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "accuracy": 0.7131410256410257,
+  "balanced_accuracy": 0.7043058633967725,
+  "macro_f1": 0.6967855221963305,
+  "weighted_f1": 0.7153086082310356,
+  "macro_auroc": 0.8923384752839573,
+  "per_class": {
+    "NORMAL": {
+      "precision": 0.9078947368421053,
+      "recall": 0.5897435897435898,
+      "f1": 0.7150259067357513,
+      "support": 234,
+      "auroc_ovr": 0.920359412667105
+    },
+    "BACTERIA": {
+      "precision": 0.7473309608540926,
+      "recall": 0.8677685950413223,
+      "f1": 0.8030592734225621,
+      "support": 242,
+      "auroc_ovr": 0.9077603738479513
+    },
+    "VIRUS": {
+      "precision": 0.5078534031413613,
+      "recall": 0.6554054054054054,
+      "f1": 0.5722713864306784,
+      "support": 148,
+      "auroc_ovr": 0.8488956393368158
+    }
+  },
+  "confusion_matrix": [
+    [
+      138,
+      27,
+      69
+    ],
+    [
+      7,
+      210,
+      25
+    ],
+    [
+      7,
+      44,
+      97
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.5897435897435898,
+      0.11538461538461539,
+      0.2948717948717949
+    ],
+    [
+      0.028925619834710745,
+      0.8677685950413223,
+      0.10330578512396695
+    ],
+    [
+      0.0472972972972973,
+      0.2972972972972973,
+      0.6554054054054054
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "NORMAL",
+    "BACTERIA",
+    "VIRUS"
+  ],
+  "ece": 0.10873004636512354,
+  "reliability_bins": [
+    {
+      "bin_low": 0.3333333333333333,
+      "bin_high": 0.4,
+      "count": 25,
+      "accuracy": 0.4,
+      "confidence": 0.3767548978328705
+    },
+    {
+      "bin_low": 0.4,
+      "bin_high": 0.4666666666666667,
+      "count": 41,
+      "accuracy": 0.3170731707317073,
+      "confidence": 0.4374541916498324
+    },
+    {
+      "bin_low": 0.4666666666666667,
+      "bin_high": 0.5333333333333333,
+      "count": 134,
+      "accuracy": 0.5149253731343284,
+      "confidence": 0.501910219441599
+    },
+    {
+      "bin_low": 0.5333333333333333,
+      "bin_high": 0.6,
+      "count": 125,
+      "accuracy": 0.712,
+      "confidence": 0.564981544971466
+    },
+    {
+      "bin_low": 0.6,
+      "bin_high": 0.6666666666666666,
+      "count": 115,
+      "accuracy": 0.8260869565217391,
+      "confidence": 0.6319791576136713
+    },
+    {
+      "bin_low": 0.6666666666666666,
+      "bin_high": 0.7333333333333333,
+      "count": 61,
+      "accuracy": 0.8852459016393442,
+      "confidence": 0.6925412797537006
+    },
+    {
+      "bin_low": 0.7333333333333333,
+      "bin_high": 0.8,
+      "count": 30,
+      "accuracy": 0.9,
+      "confidence": 0.7651294728120168
+    },
+    {
+      "bin_low": 0.8,
+      "bin_high": 0.8666666666666667,
+      "count": 27,
+      "accuracy": 0.8888888888888888,
+      "confidence": 0.834675892635628
+    },
+    {
+      "bin_low": 0.8666666666666667,
+      "bin_high": 0.9333333333333333,
+      "count": 34,
+      "accuracy": 0.9705882352941176,
+      "confidence": 0.9008100926876068
+    },
+    {
+      "bin_low": 0.9333333333333333,
+      "bin_high": 1.0,
+      "count": 32,
+      "accuracy": 0.96875,
+      "confidence": 0.9609450101852417
+    }
+  ],
+  "macro_f1_bootstrap_ci95": [
+    0.6587327498529439,
+    0.7325530721330576
+  ],
+  "macro_f1_bootstrap_std": 0.018955360301049107,
+  "support_per_class": {
+    "NORMAL": 234,
+    "BACTERIA": 242,
+    "VIRUS": 148
+  },
+  "class_counts": {
+    "NORMAL": 234,
+    "BACTERIA": 242,
+    "VIRUS": 148
+  },
+  "confusion_matrix_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed44\\confusion_matrix_test.png",
+  "confusion_matrix_normalized_figure": "C:\\Users\\Sharj\\Downloads\\5th\\Projects\\DL Project\\Pneumonia_classification\\Pneumonia_classification\\p06-pneumonia-limited-data\\results\\baseline\\seed44\\confusion_matrix_test_normalized.png"
+}

@@ -1,0 +1,23 @@
+# Data (downloaded separately; see README). Split index JSON files in
+# data/splits/ are small and are intentionally kept for reproducibility.
+data/raw/
+
+# Checkpoints and experiment outputs are regenerated, but small result files are kept.
+checkpoints/*.pt
+logs/runs/
+logs/*.txt
+logs/*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

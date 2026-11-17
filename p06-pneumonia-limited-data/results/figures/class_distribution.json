@@ -1,0 +1,54 @@
+{
+  "splits": {
+    "full_train": {
+      "n": 4415,
+      "class_counts": {
+        "NORMAL": 1161,
+        "BACTERIA": 2107,
+        "VIRUS": 1147
+      }
+    },
+    "train25": {
+      "n": 1103,
+      "class_counts": {
+        "NORMAL": 290,
+        "BACTERIA": 526,
+        "VIRUS": 287
+      }
+    },
+    "val": {
+      "n": 817,
+      "class_counts": {
+        "NORMAL": 188,
+        "BACTERIA": 431,
+        "VIRUS": 198
+      }
+    },
+    "test": {
+      "n": 624,
+      "class_counts": {
+        "NORMAL": 234,
+        "BACTERIA": 242,
+        "VIRUS": 148
+      }
+    }
+  },
+  "subset": {
+    "name": "train25_seed42",
+    "fraction": 0.25,
+    "seed": 42,
+    "n_subset": 1103,
+    "class_counts": {
+      "NORMAL": 290,
+      "BACTERIA": 526,
+      "VIRUS": 287
+    },
+    "class_proportions": {
+      "NORMAL": 0.2629193109700816,
+      "BACTERIA": 0.4768812330009066,
+      "VIRUS": 0.2601994560290118
+    },
+    "max_abs_class_proportion_diff": 0.00040330653863807076
+  },
+  "train25_class_proportions_match": true
+}

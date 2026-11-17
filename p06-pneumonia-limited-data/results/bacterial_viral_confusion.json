@@ -1,0 +1,18 @@
+{
+  "baseline": {
+    "bacterial_true": 233,
+    "viral_true": 141,
+    "bacterial_to_viral": 0,
+    "viral_to_bacterial": 117,
+    "bacterial_to_viral_rate": 0.0,
+    "viral_to_bacterial_rate": 0.8297872340425532
+  },
+  "proposed": {
+    "bacterial_true": 240,
+    "viral_true": 147,
+    "bacterial_to_viral": 20,
+    "viral_to_bacterial": 28,
+    "bacterial_to_viral_rate": 0.08333333333333333,
+    "viral_to_bacterial_rate": 0.19047619047619047
+  }
+}

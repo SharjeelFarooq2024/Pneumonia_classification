@@ -1,0 +1,78 @@
+# Shared configuration for every experiment.
+# All paths are relative to the project root (the directory containing src/).
+project_name: p06-pneumonia-limited-data
+experiment: base
+seed: 42
+
+data:
+  # MedIMeta data path: directory that contains the dataset folder `pneumonia/`.
+  root: data/raw
+  dataset_id: pneumonia
+  task_name: "disease class"
+  num_classes: 3
+  class_names: ["NORMAL", "BACTERIA", "VIRUS"]
+  image_size: 224
+  splits_dir: data/splits
+  # The official P06 25% stratified training subset. Created once by
+  # scripts/make_subset.py and reused by every experiment.
+  subset_file: data/splits/train25_seed42.json
+  num_workers: 0
+  pin_memory: true
+
+model:
+  name: baseline_cnn          # baseline_cnn | resnet18 | efficientnet_b0
+  pretrained: false
+  input_channels: 3           # grayscale is replicated to 3 channels
+  dropout: 0.0
+  # ImageNet normalization for pretrained models; symmetric 0.5 normalization otherwise.
+  imagenet_normalization: false
+
+training:
+  epochs: 20
+  batch_size: 16
+  batch_size_fallbacks: [16, 8]
+  optimizer: adam
+  lr: 0.001
+  weight_decay: 0.0
+  loss: ce                    # ce | weighted_ce | focal
+  focal_gamma: 2.0
+  class_weights_from_subset: false
+  label_smoothing: 0.0
+  augment: false
+  augment_params:
+    rotation_deg: 10
+    translate: 0.05
+    scale_min: 0.95
+    scale_max: 1.05
+    brightness: 0.10
+    contrast: 0.10
+    random_resized_crop: false
+    rrc_scale_min: 0.85
+    rrc_scale_max: 1.0
+    horizontal_flip: false     # anatomically questionable; only for ablation
+  mixup_alpha: 0.0
+  cutmix_alpha: 0.0
+  grad_clip: null
+  amp: auto                   # auto | true | false
+  # A training schedule is a list of stages. Baseline uses a single stage.
+  # Per stage: name, epochs, lr, unfreeze ("all" or list of parameter prefixes),
+  # scheduler (none|cosine|step), optional layer_lr_mult dict.
+  stages: null
+
+eval:
+  batch_size: 16
+  bootstrap_n: 1000
+  bootstrap_seed: 42
+
+paths:
+  checkpoints: checkpoints
+  results: results
+  figures: results/figures
+  logs: logs
+
+logging:
+  level: INFO
+  save_predictions: true
+
+# Test-set evaluation is performed only by src/evaluate.py after all training
+# and model-selection decisions are frozen. train.py never reads the test split.
