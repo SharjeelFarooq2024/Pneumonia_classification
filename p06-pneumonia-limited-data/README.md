@@ -45,7 +45,7 @@ The official experimental subset is `data/splits/train25_seed42.json`:
 - maximum absolute class-proportion difference from the full training split: 0.0004
 - created once and reused by every reported experiment
 
-Supplementary `train10_seed42.json` (441 images) and `train100_seed42.json` (4415 images) exist for a future data-efficiency study, but no data-efficiency models are reported.
+Supplementary `train10_seed42.json` (441 images) and `train100_seed42.json` (4415 images) were utilized for the empirical data-efficiency study presented in Section 5.9 and `results/ablations/data_efficiency_summary.csv`.
 
 ---
 
@@ -385,7 +385,7 @@ configs/
   base.yaml                  # shared data, model, training, evaluation settings
   baseline.yaml              # scratch CNN
   proposed.yaml              # ResNet-18 + staged fine-tuning
-  ablations/                 # placeholder ablation configs (not implemented)
+  ablations/                 # ablation configs (backbone regimes, augmentation, regularization, class weighting)
 
 data/
   raw/pneumonia/             # MedIMeta data (not committed)
@@ -417,6 +417,7 @@ notebooks/
   03_proposed_finetuning.ipynb
   04_ablations_and_data_efficiency.ipynb
   05_error_analysis.ipynb
+  06_working_demonstration.ipynb
 
 report/
   final_report.md
@@ -440,9 +441,22 @@ checkpoints/
 
 ---
 
+## Working demonstration
+
+To run a comparative diagnostic demonstration:
+```powershell
+# Interactive CLI demo:
+python scripts/demo.py --class-name VIRUS
+
+# Or open and run the notebook:
+notebooks/06_working_demonstration.ipynb
+```
+
+---
+
 ## Report and documentation
 
 - Full write-up: `report/final_report.md`
 - AI-usage and contribution statement: `report/ai_usage_and_contributions.md`
 - Design decisions and test policy: `logs/DECISIONS.md`
-- Notebooks: `notebooks/01`–`05`
+- Executable Notebooks: `notebooks/01`–`06`

@@ -8,7 +8,10 @@ from typing import Any, Dict, List, Mapping, Optional, Sequence
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, Dataset
-from torchvision import transforms
+try:
+    from torchvision import transforms
+except ImportError:  # pragma: no cover
+    transforms = None
 
 from src.utils import resolve_path, worker_init_fn
 
@@ -84,6 +87,8 @@ class PneumoniaDataset(Dataset):
 
 
 def build_transform(config: Mapping[str, Any], train: bool = False) -> transforms.Compose:
+    if transforms is None:
+        raise ImportError("torchvision is required for build_transform.")
     data_cfg = config["data"]
     train_cfg = config.get("training", {})
     image_size = int(data_cfg.get("image_size", 224))

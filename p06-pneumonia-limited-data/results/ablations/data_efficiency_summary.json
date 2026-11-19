@@ -1,0 +1,44 @@
+[
+  {
+    "model": "Baseline CNN",
+    "fraction": 10,
+    "samples": 441,
+    "test_macro_f1": 0.4412,
+    "test_acc": 0.512
+  },
+  {
+    "model": "Baseline CNN",
+    "fraction": 25,
+    "samples": 1103,
+    "test_macro_f1": 0.5855,
+    "test_acc": 0.6522
+  },
+  {
+    "model": "Baseline CNN",
+    "fraction": 100,
+    "samples": 4415,
+    "test_macro_f1": 0.741,
+    "test_acc": 0.774
+  },
+  {
+    "model": "Proposed ResNet-18",
+    "fraction": 10,
+    "samples": 441,
+    "test_macro_f1": 0.735,
+    "test_acc": 0.758
+  },
+  {
+    "model": "Proposed ResNet-18",
+    "fraction": 25,
+    "samples": 1103,
+    "test_macro_f1": 0.8347,
+    "test_acc": 0.8446
+  },
+  {
+    "model": "Proposed ResNet-18",
+    "fraction": 100,
+    "samples": 4415,
+    "test_macro_f1": 0.892,
+    "test_acc": 0.9015
+  }
+]

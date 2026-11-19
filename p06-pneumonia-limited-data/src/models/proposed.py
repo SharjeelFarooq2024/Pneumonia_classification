@@ -13,19 +13,86 @@ from torch import nn
 from src.models.baseline_cnn import BaselineCNN
 
 
-def _build_resnet18(pretrained: bool, num_classes: int, dropout: float) -> nn.Module:
-    from torchvision.models import ResNet18_Weights, resnet18
+class _BasicBlock(nn.Module):
+    expansion = 1
 
-    weights = ResNet18_Weights.IMAGENET1K_V1 if pretrained else None
-    model = resnet18(weights=weights)
-    in_features = model.fc.in_features
-    head: nn.Module
-    if dropout > 0:
-        head = nn.Sequential(nn.Dropout(p=dropout), nn.Linear(in_features, num_classes))
-    else:
-        head = nn.Linear(in_features, num_classes)
-    model.fc = head
-    return model
+    def __init__(self, in_planes: int, planes: int, stride: int = 1):
+        super().__init__()
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(planes)
+        self.relu = nn.ReLU(inplace=True)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.downsample = None
+        if stride != 1 or in_planes != planes:
+            self.downsample = nn.Sequential(
+                nn.Conv2d(in_planes, planes, kernel_size=1, stride=stride, bias=False),
+                nn.BatchNorm2d(planes),
+            )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        identity = x
+        out = self.relu(self.bn1(self.conv1(x)))
+        out = self.bn2(self.conv2(out))
+        if self.downsample is not None:
+            identity = self.downsample(x)
+        out += identity
+        return self.relu(out)
+
+
+class _ResNet18Pure(nn.Module):
+    def __init__(self, num_classes: int = 3, dropout: float = 0.0):
+        super().__init__()
+        self.in_planes = 64
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.relu = nn.ReLU(inplace=True)
+        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+
+        self.layer1 = self._make_layer(64, 2, stride=1)
+        self.layer2 = self._make_layer(128, 2, stride=2)
+        self.layer3 = self._make_layer(256, 2, stride=2)
+        self.layer4 = self._make_layer(512, 2, stride=2)
+
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        if dropout > 0:
+            self.fc = nn.Sequential(nn.Dropout(p=dropout), nn.Linear(512, num_classes))
+        else:
+            self.fc = nn.Linear(512, num_classes)
+
+    def _make_layer(self, planes: int, blocks: int, stride: int) -> nn.Sequential:
+        layers = [_BasicBlock(self.in_planes, planes, stride)]
+        self.in_planes = planes
+        for _ in range(1, blocks):
+            layers.append(_BasicBlock(self.in_planes, planes, 1))
+        return nn.Sequential(*layers)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.maxpool(self.relu(self.bn1(self.conv1(x))))
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+        x = self.avgpool(x)
+        x = torch.flatten(x, 1)
+        return self.fc(x)
+
+
+def _build_resnet18(pretrained: bool, num_classes: int, dropout: float) -> nn.Module:
+    try:
+        from torchvision.models import ResNet18_Weights, resnet18
+        weights = ResNet18_Weights.IMAGENET1K_V1 if pretrained else None
+        model = resnet18(weights=weights)
+        in_features = model.fc.in_features
+        head: nn.Module
+        if dropout > 0:
+            head = nn.Sequential(nn.Dropout(p=dropout), nn.Linear(in_features, num_classes))
+        else:
+            head = nn.Linear(in_features, num_classes)
+        model.fc = head
+        return model
+    except (ImportError, ModuleNotFoundError):
+        return _ResNet18Pure(num_classes=num_classes, dropout=dropout)
 
 
 def _build_efficientnet_b0(pretrained: bool, num_classes: int, dropout: float) -> nn.Module:

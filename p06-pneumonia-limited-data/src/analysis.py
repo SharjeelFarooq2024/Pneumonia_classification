@@ -20,7 +20,6 @@ import torch
 from PIL import Image
 from sklearn.metrics import confusion_matrix, f1_score
 
-from src.data.dataset import build_transform, make_datasets
 from src.models.proposed import build_model, get_gradcam_target_layer
 from src.utils import (
     compute_metrics,
@@ -41,11 +40,18 @@ CLASS_ORDER = ("NORMAL", "BACTERIA", "VIRUS")
 # Data exploration
 # ---------------------------------------------------------------------------
 def explore_data(config: Mapping[str, Any]) -> None:
-    from src.data.dataset import get_split_global_indices, get_split_labels
-
     fig_dir = resolve_path(config["paths"]["figures"])
     fig_dir.mkdir(parents=True, exist_ok=True)
     class_names = list(config["data"]["class_names"])
+    
+    csv_file = fig_dir / "class_distribution.csv"
+    if csv_file.exists():
+        df = pd.read_csv(csv_file)
+        print("Class distribution summary:")
+        print(df.to_string(index=False))
+        return
+
+    from src.data.dataset import get_split_global_indices, get_split_labels
     split_labels = {s: get_split_labels(config, s) for s in ("train", "val", "test")}
     with open(resolve_path(config["data"]["subset_file"]), "r", encoding="utf-8") as f:
         subset = json.load(f)
@@ -592,6 +598,7 @@ def _load_grayscale(config: Mapping[str, Any], image_index: int) -> np.ndarray:
 
 
 def _tensor_from_gray(config: Mapping[str, Any], image: np.ndarray) -> torch.Tensor:
+    from src.data.dataset import build_transform
     pil = Image.fromarray(image)
     return build_transform(config, train=False)(pil).unsqueeze(0)
 

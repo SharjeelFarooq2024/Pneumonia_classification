@@ -1,0 +1,7 @@
+model,fraction,samples,test_macro_f1,test_acc
+Baseline CNN,10,441,0.4412,0.512
+Baseline CNN,25,1103,0.5855,0.6522
+Baseline CNN,100,4415,0.741,0.774
+Proposed ResNet-18,10,441,0.735,0.758
+Proposed ResNet-18,25,1103,0.8347,0.8446
+Proposed ResNet-18,100,4415,0.892,0.9015

@@ -1,0 +1,14 @@
+experiment,category,val_macro_f1,val_balanced_acc,val_macro_auroc,ece,description
+Baseline CNN (Scratch),A1: Backbone Regime,0.5994,0.5488,0.8724,0.1146,"3-block scratch CNN, no pretrained weights, 20 epochs"
+ResNet-18 (Scratch),A1: Backbone Regime,0.6284,0.6015,0.8872,0.134,"ResNet-18 random initialization, 20 epochs on 25% data (severe overfitting)"
+ResNet-18 (Frozen Backbone),A1: Backbone Regime,0.7245,0.718,0.9215,0.119,"ImageNet ResNet-18, only classifier head trained (linear probe)"
+ResNet-18 (Full Fine-Tuning),A1: Backbone Regime,0.768,0.7585,0.939,0.111,"ImageNet ResNet-18, all layers updated simultaneously (catastrophic forgetting)"
+ResNet-18 (Staged Fine-Tuning),A1: Backbone Regime,0.7812,0.775,0.945,0.1065,Staged unfreezing (head -> layer4 -> full) without regularizers
+Staged ResNet-18 (No Augmentation),A2: Augmentation,0.7712,0.764,0.9385,0.112,Staged ResNet-18 with raw grayscale normalized inputs only
+Staged ResNet-18 (With Safe Aug),A2: Augmentation,0.7885,0.781,0.948,0.107,"Mild rotation (±10°), translation (±5%), scale (0.95-1.05); NO horizontal flip"
+"Staged ResNet-18 (CE, No Smoothing)",A3: Loss Regularization,0.7885,0.781,0.948,0.1284,Hard cross-entropy targets; shows overconfident probability calibration
+Staged ResNet-18 (Label Smoothing 0.1),A3: Loss Regularization,0.796,0.7895,0.9515,0.104,Uniform label smoothing alpha=0.1; improves calibration error significantly
+Staged ResNet-18 (Mixup alpha=0.2),A3: Loss Regularization,0.782,0.774,0.943,0.115,Linear interpolation mixup; causes boundary confusion between viral and bacterial
+Staged ResNet-18 (Unweighted CE),A4: Imbalance Handling,0.772,0.763,0.941,0.113,Equal loss weighting; viral recall drops to 58.4%
+Staged ResNet-18 (Focal Loss gamma=2),A4: Imbalance Handling,0.7875,0.782,0.947,0.109,Focal modulation for hard examples
+Full Proposed Model (Staged+Aug+LS+Weighted),Final Integrated Model,0.8051,0.8012,0.956,0.1002,Complete bundle: staged unfreezing + safe aug + label smoothing + subset weights

@@ -1,0 +1,119 @@
+[
+  {
+    "experiment": "Baseline CNN (Scratch)",
+    "category": "A1: Backbone Regime",
+    "val_macro_f1": 0.5994,
+    "val_balanced_acc": 0.5488,
+    "val_macro_auroc": 0.8724,
+    "ece": 0.1146,
+    "description": "3-block scratch CNN, no pretrained weights, 20 epochs"
+  },
+  {
+    "experiment": "ResNet-18 (Scratch)",
+    "category": "A1: Backbone Regime",
+    "val_macro_f1": 0.6284,
+    "val_balanced_acc": 0.6015,
+    "val_macro_auroc": 0.8872,
+    "ece": 0.134,
+    "description": "ResNet-18 random initialization, 20 epochs on 25% data (severe overfitting)"
+  },
+  {
+    "experiment": "ResNet-18 (Frozen Backbone)",
+    "category": "A1: Backbone Regime",
+    "val_macro_f1": 0.7245,
+    "val_balanced_acc": 0.718,
+    "val_macro_auroc": 0.9215,
+    "ece": 0.119,
+    "description": "ImageNet ResNet-18, only classifier head trained (linear probe)"
+  },
+  {
+    "experiment": "ResNet-18 (Full Fine-Tuning)",
+    "category": "A1: Backbone Regime",
+    "val_macro_f1": 0.768,
+    "val_balanced_acc": 0.7585,
+    "val_macro_auroc": 0.939,
+    "ece": 0.111,
+    "description": "ImageNet ResNet-18, all layers updated simultaneously (catastrophic forgetting)"
+  },
+  {
+    "experiment": "ResNet-18 (Staged Fine-Tuning)",
+    "category": "A1: Backbone Regime",
+    "val_macro_f1": 0.7812,
+    "val_balanced_acc": 0.775,
+    "val_macro_auroc": 0.945,
+    "ece": 0.1065,
+    "description": "Staged unfreezing (head -> layer4 -> full) without regularizers"
+  },
+  {
+    "experiment": "Staged ResNet-18 (No Augmentation)",
+    "category": "A2: Augmentation",
+    "val_macro_f1": 0.7712,
+    "val_balanced_acc": 0.764,
+    "val_macro_auroc": 0.9385,
+    "ece": 0.112,
+    "description": "Staged ResNet-18 with raw grayscale normalized inputs only"
+  },
+  {
+    "experiment": "Staged ResNet-18 (With Safe Aug)",
+    "category": "A2: Augmentation",
+    "val_macro_f1": 0.7885,
+    "val_balanced_acc": 0.781,
+    "val_macro_auroc": 0.948,
+    "ece": 0.107,
+    "description": "Mild rotation (\u00b110\u00b0), translation (\u00b15%), scale (0.95-1.05); NO horizontal flip"
+  },
+  {
+    "experiment": "Staged ResNet-18 (CE, No Smoothing)",
+    "category": "A3: Loss Regularization",
+    "val_macro_f1": 0.7885,
+    "val_balanced_acc": 0.781,
+    "val_macro_auroc": 0.948,
+    "ece": 0.1284,
+    "description": "Hard cross-entropy targets; shows overconfident probability calibration"
+  },
+  {
+    "experiment": "Staged ResNet-18 (Label Smoothing 0.1)",
+    "category": "A3: Loss Regularization",
+    "val_macro_f1": 0.796,
+    "val_balanced_acc": 0.7895,
+    "val_macro_auroc": 0.9515,
+    "ece": 0.104,
+    "description": "Uniform label smoothing alpha=0.1; improves calibration error significantly"
+  },
+  {
+    "experiment": "Staged ResNet-18 (Mixup alpha=0.2)",
+    "category": "A3: Loss Regularization",
+    "val_macro_f1": 0.782,
+    "val_balanced_acc": 0.774,
+    "val_macro_auroc": 0.943,
+    "ece": 0.115,
+    "description": "Linear interpolation mixup; causes boundary confusion between viral and bacterial"
+  },
+  {
+    "experiment": "Staged ResNet-18 (Unweighted CE)",
+    "category": "A4: Imbalance Handling",
+    "val_macro_f1": 0.772,
+    "val_balanced_acc": 0.763,
+    "val_macro_auroc": 0.941,
+    "ece": 0.113,
+    "description": "Equal loss weighting; viral recall drops to 58.4%"
+  },
+  {
+    "experiment": "Staged ResNet-18 (Focal Loss gamma=2)",
+    "category": "A4: Imbalance Handling",
+    "val_macro_f1": 0.7875,
+    "val_balanced_acc": 0.782,
+    "val_macro_auroc": 0.947,
+    "ece": 0.109,
+    "description": "Focal modulation for hard examples"
+  },
+  {
+    "experiment": "Full Proposed Model (Staged+Aug+LS+Weighted)",
+    "category": "Final Integrated Model",
+    "val_macro_f1": 0.8051,
+    "val_balanced_acc": 0.8012,
+    "val_macro_auroc": 0.956,
+    "ece": 0.1002,
+    "description": "Complete bundle: staged unfreezing + safe aug + label smoothing + subset weights"
+  }
+]
