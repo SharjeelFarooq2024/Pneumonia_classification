@@ -369,25 +369,19 @@ The 14 ablation experiments under `configs/ablations/` are formally codified as 
 
 ---
 
-## Trained model checkpoints & download links
+## Trained model checkpoints
 
-Because model weights files (`.pt`) exceed standard Git tracking limits and are excluded by `.gitignore`, all 6 trained model checkpoints (Seeds 42, 43, 44 for Baseline CNN and Proposed ResNet-18) are archived externally:
+PyTorch model weight files (`.pt`) are excluded from Git tracking via `.gitignore` to prevent repository bloat (~180 MB across all seeds and architectures). All ground-truth evaluation artifacts—including test predictions CSVs, classification metrics JSONs, per-epoch histories, confusion matrices, and bootstrap comparisons—are tracked under `results/`.
 
-- **GitHub Release:** [v1.0 Checkpoints Bundle](https://github.com/SharjeelFarooq2024/Pneumonia_classification/releases/tag/v1.0-checkpoints)
-- **Google Drive Mirror:** [CS320-P06 Checkpoints Mirror](https://drive.google.com/drive/folders/1A_P06_Pneumonia_Model_Weights_CS320) *(Placeholder: Update with actual Drive folder link upon upload)*
-
-To run evaluation or inference demos from scratch, download the weights into:
+When checkpoints are provided or transferred locally for inference (`scripts/predict_image.py`) or full re-evaluation (`src/evaluate.py`), place them into the `checkpoints/` folder using the canonical naming structure expected by the scripts:
 ```text
-p06-pneumonia-limited-data/
-└── checkpoints/
-    ├── baseline/
-    │   ├── seed42/best_model.pt
-    │   ├── seed43/best_model.pt
-    │   └── seed44/best_model.pt
-    └── proposed/
-        ├── seed42/best_model.pt
-        ├── seed43/best_model.pt
-        └── seed44/best_model.pt
+p06-pneumonia-limited-data/checkpoints/
+├── baseline_seed42.pt
+├── baseline_seed43.pt
+├── baseline_seed44.pt
+├── proposed_seed42.pt
+├── proposed_seed43.pt
+└── proposed_seed44.pt
 ```
 
 ---

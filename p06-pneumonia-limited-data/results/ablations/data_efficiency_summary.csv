@@ -1,4 +1,4 @@
-split_name,budget_percent,training_samples,class_counts,status,config_baseline,config_proposed,baseline_test_macro_f1,proposed_test_macro_f1,gain
-train10_seed42,10,441,"{'NORMAL': 116, 'BACTERIA': 211, 'VIRUS': 114}",Stratified Subset Verified (Model Training: Future Work),configs/ablations/dataeff_baseline_10.yaml,configs/ablations/dataeff_proposed_10.yaml,,,
-train25_seed42 (Task P06 Benchmark),25,1103,"{'NORMAL': 290, 'BACTERIA': 526, 'VIRUS': 287}",Fully Trained & Evaluated (3 Seeds),,,0.5855,0.8347,"+0.2492 (Statistically Significant, P<0.001)"
-train100_seed42,100,4415,"{'NORMAL': 1161, 'BACTERIA': 2107, 'VIRUS': 1147}",Stratified Split Verified (Model Training: Future Work),configs/ablations/dataeff_baseline_100.yaml,configs/ablations/dataeff_proposed_100.yaml,,,
+split_name,budget_percent,training_samples,status,baseline_test_macro_f1,proposed_test_macro_f1,gain,config_baseline,config_proposed
+train10_seed42,10,441,Stratified Subset Verified (Model Training: Future Work),— (Unperformed),— (Unperformed),— (Unperformed),configs/ablations/dataeff_baseline_10.yaml,configs/ablations/dataeff_proposed_10.yaml
+train25_seed42 (Task P06 Benchmark),25,1103,Fully Trained & Evaluated (3 Seeds),0.5296 (Seed 42),0.8273 (Seed 42),"+0.2977 (Seed 42; 3-seed mean: +0.2492, bootstrap P=1.0)",configs/baseline.yaml,configs/proposed.yaml
+train100_seed42,100,4415,Stratified Split Verified (Model Training: Future Work),— (Unperformed),— (Unperformed),— (Unperformed),configs/ablations/dataeff_baseline_100.yaml,configs/ablations/dataeff_proposed_100.yaml

@@ -46,8 +46,8 @@ def generate_ablation_artifacts():
             "experiment": "ResNet-18 (Scratch)",
             "category": "A1: Backbone Regime",
             "config_file": "configs/ablations/a1_resnet18_scratch.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "High parameter count (11.2M) without pretraining severely overfits 1,103 training images."
         },
@@ -55,8 +55,8 @@ def generate_ablation_artifacts():
             "experiment": "ResNet-18 (Frozen Backbone)",
             "category": "A1: Backbone Regime",
             "config_file": "configs/ablations/a1_resnet18_frozen.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Linear probe tests generalizability of frozen ImageNet features without domain fine-tuning."
         },
@@ -64,8 +64,8 @@ def generate_ablation_artifacts():
             "experiment": "ResNet-18 (Full Fine-Tuning)",
             "category": "A1: Backbone Regime",
             "config_file": "configs/ablations/a1_resnet18_full.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "End-to-end unfreezing from epoch 1 causes catastrophic forgetting in early convolutional layers."
         },
@@ -73,8 +73,8 @@ def generate_ablation_artifacts():
             "experiment": "ResNet-18 (Staged Fine-Tuning)",
             "category": "A1: Backbone Regime",
             "config_file": "configs/ablations/a1_resnet18_staged.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Progressive unfreezing (head -> layer4 -> full) protects foundational edge filters while adapting semantics."
         },
@@ -82,8 +82,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (No Augmentation)",
             "category": "A2: Augmentation",
             "config_file": "configs/ablations/a4_staged_noaug_weighted.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Isolates the regularization benefit of affine transforms on small pediatric datasets."
         },
@@ -91,8 +91,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (With Safe Aug)",
             "category": "A2: Augmentation",
             "config_file": "configs/ablations/a2_staged_aug.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Tests rotation/translation/scale while strictly avoiding anatomically invalid horizontal flips."
         },
@@ -100,8 +100,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (CE, No Smoothing)",
             "category": "A3: Loss Regularization",
             "config_file": "configs/ablations/a2_staged_aug.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Hard cross-entropy targets lead to overconfident probability calibration."
         },
@@ -109,8 +109,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (Label Smoothing 0.1)",
             "category": "A3: Loss Regularization",
             "config_file": "configs/ablations/a3_staged_aug_ls.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Uniform label smoothing prevents extreme logit penalties, lowering ECE."
         },
@@ -118,8 +118,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (Mixup alpha=0.2)",
             "category": "A3: Loss Regularization",
             "config_file": "configs/ablations/a3_staged_aug_ls_mixup.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Pixel-space interpolation may blur distinct focal vs diffuse pulmonary boundaries."
         },
@@ -127,8 +127,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (Unweighted CE)",
             "category": "A4: Imbalance Handling",
             "config_file": "configs/ablations/a3_staged_aug_ls.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Unweighted loss causes predictions to bias toward majority BACTERIA class."
         },
@@ -136,8 +136,8 @@ def generate_ablation_artifacts():
             "experiment": "Staged ResNet-18 (Focal Loss gamma=2)",
             "category": "A4: Imbalance Handling",
             "config_file": "configs/ablations/a4_staged_aug_focal.yaml",
-            "val_macro_f1": "Pending GPU",
-            "val_balanced_acc": "Pending GPU",
+            "val_macro_f1": "— (Unperformed)",
+            "val_balanced_acc": "— (Unperformed)",
             "status": "Designed (Hypothesis)",
             "hypothesis": "Focal modulation dynamic down-weights easy normal/bacterial negatives."
         },
@@ -146,7 +146,7 @@ def generate_ablation_artifacts():
             "category": "Final Integrated Model",
             "config_file": "configs/proposed.yaml",
             "val_macro_f1": "0.8051 (Real)",
-            "val_balanced_acc": "0.8012 (Real)",
+            "val_balanced_acc": "0.8142 (Real)",
             "status": "Trained & Evaluated",
             "hypothesis": "Full integrated recipe: staged fine-tuning, safe augmentations, label smoothing, and subset class weighting."
         }
@@ -163,8 +163,10 @@ def generate_ablation_artifacts():
             "split_name": "train10_seed42",
             "budget_percent": 10,
             "training_samples": 441,
-            "class_counts": {"NORMAL": 116, "BACTERIA": 211, "VIRUS": 114},
             "status": "Stratified Subset Verified (Model Training: Future Work)",
+            "baseline_test_macro_f1": "— (Unperformed)",
+            "proposed_test_macro_f1": "— (Unperformed)",
+            "gain": "— (Unperformed)",
             "config_baseline": "configs/ablations/dataeff_baseline_10.yaml",
             "config_proposed": "configs/ablations/dataeff_proposed_10.yaml"
         },
@@ -172,18 +174,21 @@ def generate_ablation_artifacts():
             "split_name": "train25_seed42 (Task P06 Benchmark)",
             "budget_percent": 25,
             "training_samples": 1103,
-            "class_counts": {"NORMAL": 290, "BACTERIA": 526, "VIRUS": 287},
             "status": "Fully Trained & Evaluated (3 Seeds)",
-            "baseline_test_macro_f1": 0.5855,
-            "proposed_test_macro_f1": 0.8347,
-            "gain": "+0.2492 (Statistically Significant, P<0.001)"
+            "baseline_test_macro_f1": "0.5296 (Seed 42)",
+            "proposed_test_macro_f1": "0.8273 (Seed 42)",
+            "gain": "+0.2977 (Seed 42; 3-seed mean: +0.2492, bootstrap P=1.0)",
+            "config_baseline": "configs/baseline.yaml",
+            "config_proposed": "configs/proposed.yaml"
         },
         {
             "split_name": "train100_seed42",
             "budget_percent": 100,
             "training_samples": 4415,
-            "class_counts": {"NORMAL": 1161, "BACTERIA": 2107, "VIRUS": 1147},
             "status": "Stratified Split Verified (Model Training: Future Work)",
+            "baseline_test_macro_f1": "— (Unperformed)",
+            "proposed_test_macro_f1": "— (Unperformed)",
+            "gain": "— (Unperformed)",
             "config_baseline": "configs/ablations/dataeff_baseline_100.yaml",
             "config_proposed": "configs/ablations/dataeff_proposed_100.yaml"
         }

@@ -35,9 +35,8 @@ Or open the executed demonstration notebook:
 ---
 
 ### Trained Model Checkpoints
-Because PyTorch weights files (`.pt`) exceed standard Git repository storage limits and are ignored by `.gitignore`, all 6 trained model checkpoints (Seeds 42, 43, 44 for Baseline CNN and Proposed ResNet-18) are archived externally:
-- **GitHub Release Archive:** [v1.0 Checkpoints Bundle](https://github.com/SharjeelFarooq2024/Pneumonia_classification/releases/tag/v1.0-checkpoints)
-- **Google Drive Mirror:** [CS320-P06 Checkpoints Mirror](https://drive.google.com/drive/folders/1A_P06_Pneumonia_Model_Weights_CS320) *(Placeholder: Update with actual Drive folder link upon upload)*
+PyTorch model weights files (`.pt`) are excluded from Git tracking via `.gitignore` to keep the repository lightweight (avoiding ~180 MB of binary weights and exceeding Git size thresholds). All primary evaluation metrics, test predictions CSVs, confusion matrices, and bootstrap comparisons are fully preserved in `p06-pneumonia-limited-data/results/`.
 
-To run evaluation scripts (`src/evaluate.py`) or demo scripts without retraining, place the downloaded weights in:
-`p06-pneumonia-limited-data/checkpoints/{baseline,proposed}/seed{42,43,44}/best_model.pt`
+When deploying checkpoints locally for live inference or re-evaluation, the files are placed directly in `p06-pneumonia-limited-data/checkpoints/` using the standard flat convention expected by the codebase:
+- `p06-pneumonia-limited-data/checkpoints/baseline_seed42.pt` (and seeds 43, 44)
+- `p06-pneumonia-limited-data/checkpoints/proposed_seed42.pt` (and seeds 43, 44)
