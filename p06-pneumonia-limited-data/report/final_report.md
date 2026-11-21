@@ -3,7 +3,7 @@
 
 **Institution:** National University of Sciences and Technology (NUST), SEECS, Department of Computing  
 **Class:** BSAI-2k24, Fall 2026 | **Course:** CS320  
-**Group:** P06 (Group Size: 3 Members: Sharjeel Farooq, Affan Ahmad, and Member 3)  
+**Group:** P06 (Group Size: 3 Members: Sharjeel Farooq, Affan Ahmad, and Mohammad Asef)  
 **Task:** 3-class mutually exclusive classification of pediatric chest X-rays (NORMAL, BACTERIA, VIRUS)  
 **Training budget:** Exactly 25% of the official training split (1,103 images)  
 **Models:** Scratch CNN baseline (93,635 params) vs. ImageNet-pretrained ResNet-18 (11.18M params) with staged fine-tuning  
@@ -306,7 +306,7 @@ python -m src.analysis --config configs/base.yaml --seed 42 gradcam
 In accordance with course guidelines for 3-member projects (P06):
 - **Sharjeel Farooq (Data Engineering & Baseline Architecture):** Handled MedIMeta data extraction, stratification script for the 25% training split (`data/splits/train25_seed42.json`), implementation of the reference 3-block scratch CNN baseline, and environment logging for reproducibility.
 - **Affan Ahmad (Proposed Model, OOP/DSA & Transfer Learning):** Implemented the ImageNet-pretrained ResNet-18 model architecture, staged fine-tuning schedule (head, layer4, full), discriminative learning rates, class weighting, label smoothing, OOP domain architecture, DSA calibration algorithms, rotation/translation augmentations, and repository management.
-- **[Member 3 Name — To Be Confirmed] (Evaluation, Analysis & Demonstration):** Implemented one-time evaluation protocol, bootstrap statistical comparison (2,000 resamples), bacterial-versus-viral confusion metrics, Grad-CAM saliency mapping, live CLI demonstration script (`scripts/demo.py`), and interactive demonstration notebook (`notebooks/06_working_demonstration.ipynb`).
+- **Mohammad Asef (Evaluation, Analysis & Demonstration):** Implemented one-time evaluation protocol, bootstrap statistical comparison (2,000 resamples), bacterial-versus-viral confusion metrics, Grad-CAM saliency mapping, live CLI demonstration script (`scripts/demo.py`), and interactive demonstration notebook (`notebooks/06_working_demonstration.ipynb`).
 - **All Members:** Jointly conducted error analysis, drafted and reviewed the technical report, verified all experimental numbers, and thoroughly understand the end-to-end pipeline in preparation for the viva.
 
 ## Appendix D — AI Tool Usage Statement

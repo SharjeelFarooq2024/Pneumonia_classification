@@ -1,6 +1,7 @@
 # Pediatric Pneumonia Classification with Limited Labeled Data (Project P06)
 **CS320: Artificial Neural Networks & Deep Learning — Term Project (BSAI-2k24, Fall 2026)**  
-**National University of Sciences & Technology (NUST), SEECS**
+**National University of Sciences & Technology (NUST), SEECS**  
+**Team Members:** Sharjeel Farooq, Affan Ahmad, Mohammad Asef
 
 All source code, configuration files, trained evaluation outputs, executed notebooks, live demonstration tools, and technical reports are located inside the main project directory:
 

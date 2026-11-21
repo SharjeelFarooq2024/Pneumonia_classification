@@ -1,4 +1,6 @@
 # Pediatric Pneumonia Classification under Limited Data
+**CS320: Artificial Neural Networks & Deep Learning — Term Project P06 (BSAI-2k24, SEECS)**  
+**Team Members:** Sharjeel Farooq, Affan Ahmad, Mohammad Asef
 
 Three-class pediatric chest X-ray classification (**NORMAL**, **BACTERIA**, **VIRUS**) on the MedIMeta pneumonia dataset. The main experiments use a fixed, stratified **25% subset of the official training split** (1103 images) and compare a scratch CNN baseline against an ImageNet-pretrained ResNet-18 with staged fine-tuning.
 

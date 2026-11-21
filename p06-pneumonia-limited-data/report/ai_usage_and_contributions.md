@@ -1,6 +1,6 @@
 # AI Usage and Contributions Statement
 **CS320: Artificial Neural Networks & Deep Learning — Term Project P06**  
-**Group:** P06 (Members: Sharjeel Farooq, Affan Ahmad, and [Member 3 Name — To Be Confirmed])  
+**Group:** P06 (Members: Sharjeel Farooq, Affan Ahmad, and Mohammad Asef)  
 **National University of Sciences & Technology (NUST), SEECS**
 
 ---
@@ -61,7 +61,7 @@ In accordance with course guidelines for 3-member projects:
   - OOP and DSA modular architectural refactoring and unit test suite design.
   - Git repository management and technical report synthesis.
 
-- **[Member 3 Name — To Be Confirmed] (Evaluation, Statistics & Working Demonstration):**
+- **Mohammad Asef (Evaluation, Statistics & Working Demonstration):**
   - Implementation of the one-time evaluation harness (`src/evaluate.py`).
   - Paired bootstrap statistical analysis (2,000 resamples per seed, 95% confidence intervals).
   - Bacterial-versus-viral confusion metrics and diagnostic analysis.
