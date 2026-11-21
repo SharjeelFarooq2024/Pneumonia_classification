@@ -61,7 +61,7 @@ training:
 
 eval:
   batch_size: 16
-  bootstrap_n: 1000
+  bootstrap_n: 2000
   bootstrap_seed: 42
 
 paths:

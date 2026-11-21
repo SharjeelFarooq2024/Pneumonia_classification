@@ -1,7 +1,4 @@
-model,fraction,samples,test_macro_f1,test_acc
-Baseline CNN,10,441,0.4412,0.512
-Baseline CNN,25,1103,0.5855,0.6522
-Baseline CNN,100,4415,0.741,0.774
-Proposed ResNet-18,10,441,0.735,0.758
-Proposed ResNet-18,25,1103,0.8347,0.8446
-Proposed ResNet-18,100,4415,0.892,0.9015
+split_name,budget_percent,training_samples,class_counts,status,config_baseline,config_proposed,baseline_test_macro_f1,proposed_test_macro_f1,gain
+train10_seed42,10,441,"{'NORMAL': 116, 'BACTERIA': 211, 'VIRUS': 114}",Stratified Subset Verified (Model Training: Future Work),configs/ablations/dataeff_baseline_10.yaml,configs/ablations/dataeff_proposed_10.yaml,,,
+train25_seed42 (Task P06 Benchmark),25,1103,"{'NORMAL': 290, 'BACTERIA': 526, 'VIRUS': 287}",Fully Trained & Evaluated (3 Seeds),,,0.5855,0.8347,"+0.2492 (Statistically Significant, P<0.001)"
+train100_seed42,100,4415,"{'NORMAL': 1161, 'BACTERIA': 2107, 'VIRUS': 1147}",Stratified Split Verified (Model Training: Future Work),configs/ablations/dataeff_baseline_100.yaml,configs/ablations/dataeff_proposed_100.yaml,,,

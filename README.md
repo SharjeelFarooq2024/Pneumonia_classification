@@ -30,3 +30,13 @@ Or open the executed demonstration notebook:
   - `04_ablations_and_data_efficiency.ipynb`
   - `05_error_analysis.ipynb`
   - `06_working_demonstration.ipynb`
+
+---
+
+### Trained Model Checkpoints
+Because PyTorch weights files (`.pt`) exceed standard Git repository storage limits and are ignored by `.gitignore`, all 6 trained model checkpoints (Seeds 42, 43, 44 for Baseline CNN and Proposed ResNet-18) are archived externally:
+- **GitHub Release Archive:** [v1.0 Checkpoints Bundle](https://github.com/SharjeelFarooq2024/Pneumonia_classification/releases/tag/v1.0-checkpoints)
+- **Google Drive Mirror:** [CS320-P06 Checkpoints Mirror](https://drive.google.com/drive/folders/1A_P06_Pneumonia_Model_Weights_CS320) *(Placeholder: Update with actual Drive folder link upon upload)*
+
+To run evaluation scripts (`src/evaluate.py`) or demo scripts without retraining, place the downloaded weights in:
+`p06-pneumonia-limited-data/checkpoints/{baseline,proposed}/seed{42,43,44}/best_model.pt`

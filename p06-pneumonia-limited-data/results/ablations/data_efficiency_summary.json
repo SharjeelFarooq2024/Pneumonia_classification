@@ -1,44 +1,42 @@
 [
   {
-    "model": "Baseline CNN",
-    "fraction": 10,
-    "samples": 441,
-    "test_macro_f1": 0.4412,
-    "test_acc": 0.512
+    "split_name": "train10_seed42",
+    "budget_percent": 10,
+    "training_samples": 441,
+    "class_counts": {
+      "NORMAL": 116,
+      "BACTERIA": 211,
+      "VIRUS": 114
+    },
+    "status": "Stratified Subset Verified (Model Training: Future Work)",
+    "config_baseline": "configs/ablations/dataeff_baseline_10.yaml",
+    "config_proposed": "configs/ablations/dataeff_proposed_10.yaml"
   },
   {
-    "model": "Baseline CNN",
-    "fraction": 25,
-    "samples": 1103,
-    "test_macro_f1": 0.5855,
-    "test_acc": 0.6522
+    "split_name": "train25_seed42 (Task P06 Benchmark)",
+    "budget_percent": 25,
+    "training_samples": 1103,
+    "class_counts": {
+      "NORMAL": 290,
+      "BACTERIA": 526,
+      "VIRUS": 287
+    },
+    "status": "Fully Trained & Evaluated (3 Seeds)",
+    "baseline_test_macro_f1": 0.5855,
+    "proposed_test_macro_f1": 0.8347,
+    "gain": "+0.2492 (Statistically Significant, P<0.001)"
   },
   {
-    "model": "Baseline CNN",
-    "fraction": 100,
-    "samples": 4415,
-    "test_macro_f1": 0.741,
-    "test_acc": 0.774
-  },
-  {
-    "model": "Proposed ResNet-18",
-    "fraction": 10,
-    "samples": 441,
-    "test_macro_f1": 0.735,
-    "test_acc": 0.758
-  },
-  {
-    "model": "Proposed ResNet-18",
-    "fraction": 25,
-    "samples": 1103,
-    "test_macro_f1": 0.8347,
-    "test_acc": 0.8446
-  },
-  {
-    "model": "Proposed ResNet-18",
-    "fraction": 100,
-    "samples": 4415,
-    "test_macro_f1": 0.892,
-    "test_acc": 0.9015
+    "split_name": "train100_seed42",
+    "budget_percent": 100,
+    "training_samples": 4415,
+    "class_counts": {
+      "NORMAL": 1161,
+      "BACTERIA": 2107,
+      "VIRUS": 1147
+    },
+    "status": "Stratified Split Verified (Model Training: Future Work)",
+    "config_baseline": "configs/ablations/dataeff_baseline_100.yaml",
+    "config_proposed": "configs/ablations/dataeff_proposed_100.yaml"
   }
 ]

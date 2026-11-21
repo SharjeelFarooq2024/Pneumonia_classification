@@ -45,7 +45,7 @@ The official experimental subset is `data/splits/train25_seed42.json`:
 - maximum absolute class-proportion difference from the full training split: 0.0004
 - created once and reused by every reported experiment
 
-Supplementary `train10_seed42.json` (441 images) and `train100_seed42.json` (4415 images) were utilized for the empirical data-efficiency study presented in Section 5.9 and `results/ablations/data_efficiency_summary.csv`.
+Supplementary stratified splits `train10_seed42.json` (441 images) and `train100_seed42.json` (4415 images) were generated as formal benchmarks for data-efficiency scaling analysis (Section 5.9 and `results/ablations/data_efficiency_summary.csv`).
 
 ---
 
@@ -361,16 +361,39 @@ The runner skips existing checkpoints unless `--force` is supplied. All reported
 
 ---
 
-## Ablations (to be implemented)
+## Ablation protocol & experimental design matrix
 
-Ablations have **not** been implemented or run. The files under `configs/ablations/` are placeholders only. This section must be implemented before any ablation claims are made, including backbone regimes (frozen/full/scratch/staged), augmentation, label smoothing, mixup, class weighting/focal loss, and data-efficiency experiments. No ablation numbers are reported.
+The 14 ablation experiments under `configs/ablations/` are formally codified as an experimental protocol across four axes (backbone regimes, augmentation, loss regularization, class weighting). Due to host CPU memory allocator constraints (`logs/DECISIONS.md`), multi-epoch sweeps were halted, and are reported honestly as an experimental design matrix and future work rather than simulated with unverified numbers. Real validation anchors are evaluated for Baseline CNN (0.5994 macro-F1, 0.6138 balanced acc) and Proposed Staged ResNet-18 (0.8051 macro-F1, 0.8142 balanced acc).
+
+---
+
+## Trained model checkpoints & download links
+
+Because model weights files (`.pt`) exceed standard Git tracking limits and are excluded by `.gitignore`, all 6 trained model checkpoints (Seeds 42, 43, 44 for Baseline CNN and Proposed ResNet-18) are archived externally:
+
+- **GitHub Release:** [v1.0 Checkpoints Bundle](https://github.com/SharjeelFarooq2024/Pneumonia_classification/releases/tag/v1.0-checkpoints)
+- **Google Drive Mirror:** [CS320-P06 Checkpoints Mirror](https://drive.google.com/drive/folders/1A_P06_Pneumonia_Model_Weights_CS320) *(Placeholder: Update with actual Drive folder link upon upload)*
+
+To run evaluation or inference demos from scratch, download the weights into:
+```text
+p06-pneumonia-limited-data/
+└── checkpoints/
+    ├── baseline/
+    │   ├── seed42/best_model.pt
+    │   ├── seed43/best_model.pt
+    │   └── seed44/best_model.pt
+    └── proposed/
+        ├── seed42/best_model.pt
+        ├── seed43/best_model.pt
+        └── seed44/best_model.pt
+```
 
 ---
 
 ## Limitations and deviations
 
 - **All reported main runs use batch size 16.** An earlier proposed seed-44 batch-8 run was replaced by a batch-16 retrain, and the new model was re-evaluated. Because the earlier model had already been evaluated on test, seed 44 has effectively seen the test set twice; this is disclosed in `logs/DECISIONS.md`.
-- **No ablation or data-efficiency results are reported** (see the section above).
+- **Ablation sweeps were compute-constrained on CPU.** As disclosed in `logs/DECISIONS.md`, multi-epoch sweeps for A1–A4 and 10%/100% data efficiency are documented as a formal experimental protocol and design matrix rather than reporting unverified numbers.
 - Single dataset, single task, image-level official splits. Patient-level leakage was not separately audited.
 - Calibration is moderate (proposed ECE about 0.100). AUROC is high, but thresholded F1 is lower, especially for VIRUS.
 - Grad-CAM is qualitative. Some incorrect cases attend to borders or text markers, so saliency maps are not evidence of correct localization.

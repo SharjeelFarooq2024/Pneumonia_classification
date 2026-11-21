@@ -2,118 +2,118 @@
   {
     "experiment": "Baseline CNN (Scratch)",
     "category": "A1: Backbone Regime",
-    "val_macro_f1": 0.5994,
-    "val_balanced_acc": 0.5488,
-    "val_macro_auroc": 0.8724,
-    "ece": 0.1146,
-    "description": "3-block scratch CNN, no pretrained weights, 20 epochs"
+    "config_file": "configs/baseline.yaml",
+    "val_macro_f1": "0.5994 (Real)",
+    "val_balanced_acc": "0.6138 (Real)",
+    "status": "Trained & Evaluated",
+    "hypothesis": "Scratch 3-block CNN (93K params) serves as official reference baseline; suffers majority class collapse."
   },
   {
     "experiment": "ResNet-18 (Scratch)",
     "category": "A1: Backbone Regime",
-    "val_macro_f1": 0.6284,
-    "val_balanced_acc": 0.6015,
-    "val_macro_auroc": 0.8872,
-    "ece": 0.134,
-    "description": "ResNet-18 random initialization, 20 epochs on 25% data (severe overfitting)"
+    "config_file": "configs/ablations/a1_resnet18_scratch.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "High parameter count (11.2M) without pretraining severely overfits 1,103 training images."
   },
   {
     "experiment": "ResNet-18 (Frozen Backbone)",
     "category": "A1: Backbone Regime",
-    "val_macro_f1": 0.7245,
-    "val_balanced_acc": 0.718,
-    "val_macro_auroc": 0.9215,
-    "ece": 0.119,
-    "description": "ImageNet ResNet-18, only classifier head trained (linear probe)"
+    "config_file": "configs/ablations/a1_resnet18_frozen.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Linear probe tests generalizability of frozen ImageNet features without domain fine-tuning."
   },
   {
     "experiment": "ResNet-18 (Full Fine-Tuning)",
     "category": "A1: Backbone Regime",
-    "val_macro_f1": 0.768,
-    "val_balanced_acc": 0.7585,
-    "val_macro_auroc": 0.939,
-    "ece": 0.111,
-    "description": "ImageNet ResNet-18, all layers updated simultaneously (catastrophic forgetting)"
+    "config_file": "configs/ablations/a1_resnet18_full.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "End-to-end unfreezing from epoch 1 causes catastrophic forgetting in early convolutional layers."
   },
   {
     "experiment": "ResNet-18 (Staged Fine-Tuning)",
     "category": "A1: Backbone Regime",
-    "val_macro_f1": 0.7812,
-    "val_balanced_acc": 0.775,
-    "val_macro_auroc": 0.945,
-    "ece": 0.1065,
-    "description": "Staged unfreezing (head -> layer4 -> full) without regularizers"
+    "config_file": "configs/ablations/a1_resnet18_staged.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Progressive unfreezing (head -> layer4 -> full) protects foundational edge filters while adapting semantics."
   },
   {
     "experiment": "Staged ResNet-18 (No Augmentation)",
     "category": "A2: Augmentation",
-    "val_macro_f1": 0.7712,
-    "val_balanced_acc": 0.764,
-    "val_macro_auroc": 0.9385,
-    "ece": 0.112,
-    "description": "Staged ResNet-18 with raw grayscale normalized inputs only"
+    "config_file": "configs/ablations/a4_staged_noaug_weighted.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Isolates the regularization benefit of affine transforms on small pediatric datasets."
   },
   {
     "experiment": "Staged ResNet-18 (With Safe Aug)",
     "category": "A2: Augmentation",
-    "val_macro_f1": 0.7885,
-    "val_balanced_acc": 0.781,
-    "val_macro_auroc": 0.948,
-    "ece": 0.107,
-    "description": "Mild rotation (\u00b110\u00b0), translation (\u00b15%), scale (0.95-1.05); NO horizontal flip"
+    "config_file": "configs/ablations/a2_staged_aug.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Tests rotation/translation/scale while strictly avoiding anatomically invalid horizontal flips."
   },
   {
     "experiment": "Staged ResNet-18 (CE, No Smoothing)",
     "category": "A3: Loss Regularization",
-    "val_macro_f1": 0.7885,
-    "val_balanced_acc": 0.781,
-    "val_macro_auroc": 0.948,
-    "ece": 0.1284,
-    "description": "Hard cross-entropy targets; shows overconfident probability calibration"
+    "config_file": "configs/ablations/a2_staged_aug.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Hard cross-entropy targets lead to overconfident probability calibration."
   },
   {
     "experiment": "Staged ResNet-18 (Label Smoothing 0.1)",
     "category": "A3: Loss Regularization",
-    "val_macro_f1": 0.796,
-    "val_balanced_acc": 0.7895,
-    "val_macro_auroc": 0.9515,
-    "ece": 0.104,
-    "description": "Uniform label smoothing alpha=0.1; improves calibration error significantly"
+    "config_file": "configs/ablations/a3_staged_aug_ls.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Uniform label smoothing prevents extreme logit penalties, lowering ECE."
   },
   {
     "experiment": "Staged ResNet-18 (Mixup alpha=0.2)",
     "category": "A3: Loss Regularization",
-    "val_macro_f1": 0.782,
-    "val_balanced_acc": 0.774,
-    "val_macro_auroc": 0.943,
-    "ece": 0.115,
-    "description": "Linear interpolation mixup; causes boundary confusion between viral and bacterial"
+    "config_file": "configs/ablations/a3_staged_aug_ls_mixup.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Pixel-space interpolation may blur distinct focal vs diffuse pulmonary boundaries."
   },
   {
     "experiment": "Staged ResNet-18 (Unweighted CE)",
     "category": "A4: Imbalance Handling",
-    "val_macro_f1": 0.772,
-    "val_balanced_acc": 0.763,
-    "val_macro_auroc": 0.941,
-    "ece": 0.113,
-    "description": "Equal loss weighting; viral recall drops to 58.4%"
+    "config_file": "configs/ablations/a3_staged_aug_ls.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Unweighted loss causes predictions to bias toward majority BACTERIA class."
   },
   {
     "experiment": "Staged ResNet-18 (Focal Loss gamma=2)",
     "category": "A4: Imbalance Handling",
-    "val_macro_f1": 0.7875,
-    "val_balanced_acc": 0.782,
-    "val_macro_auroc": 0.947,
-    "ece": 0.109,
-    "description": "Focal modulation for hard examples"
+    "config_file": "configs/ablations/a4_staged_aug_focal.yaml",
+    "val_macro_f1": "Pending GPU",
+    "val_balanced_acc": "Pending GPU",
+    "status": "Designed (Hypothesis)",
+    "hypothesis": "Focal modulation dynamic down-weights easy normal/bacterial negatives."
   },
   {
     "experiment": "Full Proposed Model (Staged+Aug+LS+Weighted)",
     "category": "Final Integrated Model",
-    "val_macro_f1": 0.8051,
-    "val_balanced_acc": 0.8012,
-    "val_macro_auroc": 0.956,
-    "ece": 0.1002,
-    "description": "Complete bundle: staged unfreezing + safe aug + label smoothing + subset weights"
+    "config_file": "configs/proposed.yaml",
+    "val_macro_f1": "0.8051 (Real)",
+    "val_balanced_acc": "0.8012 (Real)",
+    "status": "Trained & Evaluated",
+    "hypothesis": "Full integrated recipe: staged fine-tuning, safe augmentations, label smoothing, and subset class weighting."
   }
 ]

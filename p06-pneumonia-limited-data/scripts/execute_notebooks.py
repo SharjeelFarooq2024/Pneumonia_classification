@@ -6,7 +6,7 @@ import io
 import base64
 from pathlib import Path
 
-ROOT = Path("C:/Users/DAR/Desktop/Pneumonia_classification/p06-pneumonia-limited-data")
+ROOT = Path(__file__).resolve().parent.parent
 os.chdir(ROOT)
 sys.path.insert(0, str(ROOT))
 
